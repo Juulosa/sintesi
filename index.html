@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oposicions - Temari Exhaustiu LOSU i Estatut URV</title>
+  <title>Oposicions - Plataforma d'Estudi Jurídic</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
@@ -58,104 +58,187 @@
     }
     .prose-legal dt {
       font-weight: 700;
-      color: #1e293b;
-      margin-top: 0.75rem;
+      color: #0f172a;
     }
     .prose-legal dd {
       margin-left: 0;
       color: #334155;
       line-height: 1.625;
-      margin-bottom: 0.5rem;
+      margin-top: 0.25rem;
     }
-    .highlight-match {
-      background-color: #fef08a;
-      color: #854d0e;
-      padding: 0 2px;
-      border-radius: 2px;
+    .card-glow-estudiat {
+      border-left: 5px solid #10b981 !important;
+    }
+    .card-glow-revisar {
+      border-left: 5px solid #f59e0b !important;
+    }
+    .card-glow-pendent {
+      border-left: 5px solid #94a3b8 !important;
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+<body class="bg-slate-100 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
 
-  <!-- TOP APP BAR -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+  <!-- TOP HEADER -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center gap-3">
+      <div class="flex items-center justify-between h-16 gap-3">
+        
+        <!-- Logo & Title -->
+        <div class="flex items-center gap-3 min-w-max">
           <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-700 to-rose-600 flex items-center justify-center text-white shadow-md shadow-indigo-200">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
           </div>
           <div>
             <h1 class="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
               Oposicions
-              <span class="text-xs px-2.5 py-0.5 rounded-full font-bold bg-indigo-50 text-indigo-700 border border-indigo-200/60 uppercase tracking-wider">Compendi Jurídic</span>
+              <span class="text-[10px] px-2 py-0.5 rounded-md font-bold bg-indigo-100 text-indigo-800 tracking-wider uppercase">Plataforma d'Estudi</span>
             </h1>
-            <p class="text-xs text-slate-500 font-medium">Temari Exhaustiu: Llei Orgànica 2/2023 (LOSU) &bull; Estatut URV 2025</p>
+            <p class="text-xs text-slate-500 hidden sm:block">Control d'aprenentatge &bull; LOSU i Estatut URV</p>
           </div>
         </div>
 
-        <!-- SEARCH BAR & ACTIONS -->
-        <div class="flex items-center gap-3">
-          <div class="relative w-64 md:w-80">
-            <input type="text" id="searchInput" placeholder="Cerca articles, quòrums, percentatges..." 
-              class="w-full bg-slate-100 hover:bg-slate-200/70 focus:bg-white text-sm text-slate-800 placeholder-slate-400 pl-9 pr-4 py-2 rounded-xl border border-transparent focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100 transition-all">
+        <!-- Search Bar -->
+        <div class="flex-1 max-w-md mx-2">
+          <div class="relative">
+            <input type="text" id="searchInput" placeholder="Cerca articles, quòrums, termes clau..." 
+              class="w-full bg-slate-100/90 focus:bg-white text-xs sm:text-sm text-slate-800 placeholder-slate-400 pl-9 pr-8 py-2 rounded-xl border border-slate-200 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100 transition-all">
             <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <button id="clearSearchBtn" class="hidden absolute right-2.5 top-2.5 text-slate-400 hover:text-slate-600">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
           </div>
-          <button id="toggleAllBtn" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 transition shadow-sm">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            <span id="toggleAllText">Desplega-ho tot</span>
-          </button>
         </div>
+
+        <!-- Global Action: Expand / Collapse -->
+        <button id="toggleAllBtn" class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition shadow-sm">
+          <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          <span id="toggleAllText" class="hidden sm:inline">Desplega-ho tot</span>
+        </button>
+
       </div>
     </div>
 
-    <!-- DOCUMENT SWITCHER TABS -->
-    <div class="bg-slate-100/80 border-t border-slate-200/80">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between overflow-x-auto">
-        <div class="flex gap-2 py-2">
-          <button onclick="switchDoc('losu')" id="tab-losu" class="doc-tab px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all bg-indigo-600 text-white shadow-sm">
-            <span class="w-2 h-2 rounded-full bg-white"></span>
-            LOSU (Llei Orgànica 2/2023)
-            <span class="text-xs bg-indigo-500/50 px-1.5 py-0.5 rounded font-mono">102 pàg.</span>
+    <!-- DOCUMENT SWITCHER -->
+    <div class="bg-white border-t border-slate-200 shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between overflow-x-auto py-2.5 gap-3">
+        <div class="flex items-center gap-2">
+          <button onclick="switchDoc('losu')" id="tab-losu" class="doc-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 transition-all bg-indigo-600 text-white shadow-sm shadow-indigo-100">
+            <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+            LOSU (Llei 2/2023)
+            <span class="px-1.5 py-0.5 rounded text-[11px] bg-indigo-500/50 font-mono text-white">102 pàg.</span>
           </button>
-          <button onclick="switchDoc('urv')" id="tab-urv" class="doc-tab px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all bg-white text-slate-700 hover:bg-slate-200/60 border border-slate-200">
+          <button onclick="switchDoc('urv')" id="tab-urv" class="doc-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 transition-all bg-slate-100 text-slate-700 hover:bg-slate-200/70 border border-transparent">
             <span class="w-2 h-2 rounded-full bg-rose-500"></span>
-            Estatut URV (Acord GOV/244/2025)
-            <span class="text-xs bg-slate-200 px-1.5 py-0.5 rounded font-mono text-slate-600">52 pàg.</span>
+            Estatut URV 2025
+            <span class="px-1.5 py-0.5 rounded text-[11px] bg-slate-200 font-mono text-slate-700">52 pàg.</span>
           </button>
-          <button onclick="switchDoc('comparativa')" id="tab-comparativa" class="doc-tab px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all bg-white text-slate-700 hover:bg-slate-200/60 border border-slate-200">
+          <button onclick="switchDoc('comparativa')" id="tab-comparativa" class="doc-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 transition-all bg-slate-100 text-slate-700 hover:bg-slate-200/70 border border-transparent">
             <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-            Taula de Quòrums &amp; Xifres Clau
+            Quòrums &amp; Xifres Clau
           </button>
         </div>
-        <div class="hidden lg:flex items-center text-xs text-slate-500 gap-4">
-          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Contingut Literal Consolidat</span>
-          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-indigo-500"></span> Preparat per a Temaris Oposició</span>
-        </div>
+
+        <button onclick="resetAllProgress()" title="Reiniciar estat d'estudi" class="text-xs text-slate-400 hover:text-rose-600 transition flex items-center gap-1 font-medium whitespace-nowrap">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          Reiniciar progrés
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- MAIN CONTAINER -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
+  <!-- DASHBOARD METRICS BAR (INTERACTIVE STUDY TRACKER) -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 w-full">
+    <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-sm space-y-4">
+      
+      <!-- Progress Bar & Title -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Pla de Treball Oposicions</span>
+          <h2 class="text-base sm:text-lg font-extrabold text-slate-900 flex items-center gap-2">
+            Panell de Control d'Estudi
+            <span id="doc-badge-name" class="text-xs px-2.5 py-0.5 rounded-full font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">LOSU</span>
+          </h2>
+        </div>
+        
+        <!-- Progress percentage indicator -->
+        <div class="flex items-center gap-3">
+          <div class="w-36 sm:w-48 bg-slate-100 rounded-full h-3 overflow-hidden border border-slate-200">
+            <div id="progress-bar-fill" class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full transition-all duration-500" style="width: 0%"></div>
+          </div>
+          <span id="progress-percent" class="text-sm font-extrabold text-slate-900 font-mono">0%</span>
+        </div>
+      </div>
+
+      <!-- Quick Filter Buttons / KPI Cards -->
+      <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 pt-2 border-t border-slate-100 text-xs">
+        
+        <!-- Filter: ALL -->
+        <button onclick="setFilter('all')" id="filter-all" class="filter-card p-3 rounded-xl border border-indigo-500 bg-indigo-50/60 text-slate-900 text-left transition hover:shadow-sm">
+          <div class="text-[11px] font-semibold text-slate-500">Total Temari</div>
+          <div class="text-lg sm:text-xl font-extrabold font-mono mt-0.5" id="count-all">0</div>
+        </button>
+
+        <!-- Filter: ESTUDIAT -->
+        <button onclick="setFilter('estudiat')" id="filter-estudiat" class="filter-card p-3 rounded-xl border border-slate-200 hover:border-emerald-400 bg-white text-slate-900 text-left transition hover:shadow-sm">
+          <div class="text-[11px] font-semibold text-emerald-600 flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Estudiat
+          </div>
+          <div class="text-lg sm:text-xl font-extrabold font-mono text-emerald-700 mt-0.5" id="count-estudiat">0</div>
+        </button>
+
+        <!-- Filter: REVISAR -->
+        <button onclick="setFilter('revisar')" id="filter-revisar" class="filter-card p-3 rounded-xl border border-slate-200 hover:border-amber-400 bg-white text-slate-900 text-left transition hover:shadow-sm">
+          <div class="text-[11px] font-semibold text-amber-600 flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span> Pendent de Repàs
+          </div>
+          <div class="text-lg sm:text-xl font-extrabold font-mono text-amber-700 mt-0.5" id="count-revisar">0</div>
+        </button>
+
+        <!-- Filter: PENDENT -->
+        <button onclick="setFilter('pendent')" id="filter-pendent" class="filter-card p-3 rounded-xl border border-slate-200 hover:border-slate-400 bg-white text-slate-900 text-left transition hover:shadow-sm">
+          <div class="text-[11px] font-semibold text-slate-500 flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-slate-400"></span> Pendent
+          </div>
+          <div class="text-lg sm:text-xl font-extrabold font-mono text-slate-600 mt-0.5" id="count-pendent">0</div>
+        </button>
+
+        <!-- Filter: RELLEVANT -->
+        <button onclick="setFilter('relevant')" id="filter-relevant" class="filter-card col-span-2 sm:col-span-1 p-3 rounded-xl border border-slate-200 hover:border-rose-400 bg-white text-slate-900 text-left transition hover:shadow-sm">
+          <div class="text-[11px] font-semibold text-rose-600 flex items-center gap-1">
+            <svg class="w-3.5 h-3.5 fill-rose-500 text-rose-500" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            Rellevants
+          </div>
+          <div class="text-lg sm:text-xl font-extrabold font-mono text-rose-700 mt-0.5" id="count-relevant">0</div>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN BODY -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
     
     <!-- LEFT SIDEBAR: FAST INDEX -->
     <aside class="hidden lg:block lg:col-span-3">
       <div class="sticky top-32 space-y-4">
-        <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm">
-          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center justify-between">
-            Índex Sistemàtic
-            <span id="nav-count" class="font-mono text-indigo-600 bg-indigo-50 px-1.5 py-0.5 rounded text-[11px]"></span>
-          </h2>
-          <nav id="sidebar-nav" class="custom-scroll max-h-[calc(100vh-220px)] overflow-y-auto space-y-1 text-sm font-medium pr-1">
+        <div class="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-sm">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center justify-between">
+            Índex de Temes
+            <span id="nav-count" class="font-mono text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded text-[11px] font-bold"></span>
+          </h3>
+          <nav id="sidebar-nav" class="custom-scroll max-h-[calc(100vh-270px)] overflow-y-auto space-y-1 text-sm font-medium pr-1">
             <!-- Nav items inserted by JS -->
           </nav>
         </div>
 
-        <div class="bg-gradient-to-br from-indigo-900 to-slate-900 text-white rounded-2xl p-4 shadow-md text-xs space-y-2">
-          <div class="font-bold text-indigo-300 uppercase tracking-wider">Clau d'Oposició</div>
+        <div class="bg-gradient-to-br from-slate-900 to-indigo-950 text-white rounded-2xl p-4 shadow-md text-xs space-y-2">
+          <div class="font-bold text-amber-300 uppercase tracking-wider flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.477.859h4z"/></svg>
+            Consell d'Estudi
+          </div>
           <p class="text-slate-300 leading-relaxed">
-            Recorda que a les proves selectives solen preguntar terminis (mesos/anys), percentatges d'òrgans col·legiats, quòrums de votació i competències exclusives del Rectorat vs. Consell Social vs. Consell de Govern.
+            Pots canviar l'estat de cada bloc fent clic a <strong>Estudiat</strong>, <strong>Revisar</strong> o <strong>Pendent</strong>, i marcar amb l'estrella els articles més preguntats a les oposicions. El progrés es guarda automàticament al teu navegador.
           </p>
         </div>
       </div>
@@ -165,61 +248,61 @@
     <main class="lg:col-span-9 space-y-6" id="main-content">
       
       <!-- LOSU SECTION -->
-      <section id="section-losu" class="space-y-6">
+      <section id="section-losu" class="space-y-4">
         <!-- HEADER CARD -->
-        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm relative overflow-hidden">
-          <div class="absolute right-0 top-0 w-96 h-96 bg-indigo-50 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3"></div>
-          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm relative overflow-hidden">
+          <div class="absolute right-0 top-0 w-80 h-80 bg-indigo-50 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3"></div>
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
               BOE núm. 70, 23/03/2023 &bull; Text Consolidat
             </span>
-            <span class="text-xs text-slate-500 font-mono font-medium">Fitxer: 2043462.pdf (102 pàgines)</span>
+            <span class="text-xs text-slate-500 font-mono">Fitxer: 2043462.pdf (102 pàgines)</span>
           </div>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Llei Orgànica 2/2023, de 22 de març, del Sistema Universitari (LOSU)</h2>
-          <p class="mt-2 text-slate-600 text-sm sm:text-base leading-relaxed">
-            Estructura normativa bàsica de l'educació superior universitària a l'Estat espanyol: principis fundacionals, dret fonamental d'autonomia universitària (Art. 27.10 CE), creació i règim jurídic de centres, governança multinivell, finançament i règim estatutari complet del Personal Docent i Investigador (PDI) i Personal Tècnic, de Gestió i d'Administració i Serveis (PTGAS).
+          <p class="mt-2 text-slate-600 text-sm leading-relaxed">
+            Regulació completa: autonomia universitària (Art. 27.10 CE), procediments d'implantació, ciència oberta, estatut de l'estudiantat, governança, mandats de 6 anys, finançament i cossos docents funcionaris i laborals.
           </p>
         </div>
 
         <!-- ACCORDION BLOCKS CONTAINER (LOSU) -->
         <div class="space-y-4" id="losu-blocks">
-          <!-- Dynamically populated or statically rendered below -->
+          <!-- Populated by JS -->
         </div>
       </section>
 
       <!-- URV SECTION -->
-      <section id="section-urv" class="space-y-6 hidden">
+      <section id="section-urv" class="space-y-4 hidden">
         <!-- HEADER CARD -->
-        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm relative overflow-hidden">
-          <div class="absolute right-0 top-0 w-96 h-96 bg-rose-50 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3"></div>
-          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm relative overflow-hidden">
+          <div class="absolute right-0 top-0 w-80 h-80 bg-rose-50 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3"></div>
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-rose-50 text-rose-700 border border-rose-200">
               Acord GOV/244/2025, de 21 d'octubre &bull; DOGC núm. 9526, 23/10/2025
             </span>
-            <span class="text-xs text-slate-500 font-mono font-medium">Fitxer: DOGC9526_Estatut_URV_2025 (1).pdf (52 pàgines)</span>
+            <span class="text-xs text-slate-500 font-mono">Fitxer: DOGC9526_Estatut_URV_2025 (1).pdf (52 pàgines)</span>
           </div>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Estatut de la Universitat Rovira i Virgili (URV 2025)</h2>
-          <p class="mt-2 text-slate-600 text-sm sm:text-base leading-relaxed">
-            Norma institucional bàsica de la Universitat Rovira i Virgili: orígens històrics de 1572 i Llei 36/1991, seu i simbologia institucional, règim d'autonomia i llengua pròpia, organització en campus, facultats, escoles i departaments, composició exacta dels òrgans de govern (Claustre, Consell Social, Consell de Govern), Sindicatura de Greuges, règim docent i d'investigació, drets i deures de la comunitat universitària, règim economicofinancer i procediment de reforma estatutària.
+          <p class="mt-2 text-slate-600 text-sm leading-relaxed">
+            Norma institucional bàsica: orígens històrics de 1572, seu a Tarragona, llengua pròpia, facultats i departaments, composició exacta del Claustre (203 membres), Consell de Govern, elecció de Rector/a, Sindicatura de Greuges, règim de personal, pressupostos i reforma estatutària.
           </p>
         </div>
 
         <!-- ACCORDION BLOCKS CONTAINER (URV) -->
         <div class="space-y-4" id="urv-blocks">
-          <!-- Dynamically populated -->
+          <!-- Populated by JS -->
         </div>
       </section>
 
       <!-- COMPARATIVA SECTION -->
       <section id="section-comparativa" class="space-y-6 hidden">
-        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
-          <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Quadre Comparatiu &amp; Xifres Crítiques per a Oposicions</h2>
-          <p class="mt-1 text-slate-600 text-sm">Resum mnemotècnic dels llindars legals, percentatges de participació, mandats i terminis taxatius que s'exigeixen en ambdues normes.</p>
+        <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm">
+          <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Quadre Comparatiu &amp; Xifres Crítiques d'Examen</h2>
+          <p class="mt-1 text-slate-600 text-sm">Percentatges legals, mandats, terminis i llindars de representació que cal dominar per a les oposicions.</p>
         </div>
 
         <!-- TABLE 1: ÒRGANS I MANDATS -->
         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-          <div class="px-6 py-4 bg-slate-900 text-white font-bold text-sm flex items-center justify-between">
+          <div class="px-5 py-3.5 bg-slate-900 text-white font-bold text-sm flex items-center justify-between">
             <span>Taula 1: Mandats, Càrrecs Unipersonals i Requisits</span>
             <span class="text-xs text-indigo-300 font-normal">LOSU Arts. 44, 50, 51 &bull; URV Arts. 24, 45, 53, 60</span>
           </div>
@@ -227,36 +310,36 @@
             <table class="w-full text-left text-sm text-slate-700">
               <thead class="bg-slate-100/75 border-b border-slate-200 text-xs font-bold text-slate-600 uppercase">
                 <tr>
-                  <th class="py-3.5 px-4">Càrrec / Òrgan</th>
-                  <th class="py-3.5 px-4">Durada del Mandat</th>
-                  <th class="py-3.5 px-4">Requisits LOSU</th>
-                  <th class="py-3.5 px-4">Concreció a l'Estatut URV</th>
+                  <th class="py-3 px-4">Càrrec / Òrgan</th>
+                  <th class="py-3 px-4">Durada del Mandat</th>
+                  <th class="py-3 px-4">Requisits LOSU</th>
+                  <th class="py-3 px-4">Concreció a l'Estatut URV</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-slate-200 font-medium">
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Rector / Rectora</td>
-                  <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">6 anys improrrogables</span> (no renovable)</td>
-                  <td class="py-3.5 px-4">PDI permanent doctor a temps complet en actiu; mèrits de recerca, docència i gestió unipersonal.</td>
-                  <td class="py-3.5 px-4">Mínim 3 trams de recerca (sexennis), 3 trams docents (quinquennis) i 3r tram de gestió (Art. 46.1).</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Rector / Rectora</td>
+                  <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">6 anys improrrogables</span> (no renovable)</td>
+                  <td class="py-3 px-4">PDI permanent doctor a temps complet en actiu; mèrits de recerca, docència i gestió unipersonal.</td>
+                  <td class="py-3 px-4">Mínim 3 sexennis de recerca, 3 quinquennis docents i 3r tram de gestió (Art. 46.1).</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Òrgans Unipersonals Electes</td>
-                  <td class="py-3.5 px-4">6 anys improrrogables i no renovables (Art. 44.3 LOSU).</td>
-                  <td class="py-3.5 px-4">Dedicació a temps complet. Incompatibilitat de tenir més d'un càrrec simultani.</td>
-                  <td class="py-3.5 px-4">Degans/directors d'escola (6 anys), directors departament (6 anys). Directores d'institut: 6 anys + opció a 6 més (Art. 63.3).</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Òrgans Unipersonals Electes</td>
+                  <td class="py-3 px-4">6 anys improrrogables i no renovables (Art. 44.3 LOSU).</td>
+                  <td class="py-3 px-4">Dedicació a temps complet. Incompatibilitat de tenir més d'un càrrec simultani.</td>
+                  <td class="py-3 px-4">Degans/directors d'escola (6 anys), directors dept. (6 anys). Directores d'institut: 6 anys + opció a 6 més (Art. 63.3).</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Moció de censura / Eleccions extraordinàries</td>
-                  <td class="py-3.5 px-4">Dissolució immediata de l'òrgan si prospera</td>
-                  <td class="py-3.5 px-4">Iniciativa d'1/3 de membres del Claustre (amb mín. 30% PDI funcionari i permanent). Aprovació per 2/3. Si no prospera, vet d'1 any als sol·licitants.</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Moció de censura / Eleccions extraordinàries</td>
+                  <td class="py-3 px-4">Dissolució immediata de l'òrgan si prospera</td>
+                  <td class="py-3 px-4">Iniciativa d'1/3 de membres del Claustre (mín. 30% PDI funcionari/permanent). Aprovació per 2/3. Vet d'1 any si fracassa.</td>
                   <td class="py-3.5 px-4">El Claustre pot convocar eleccions a Rector per 1/3 dels membres. Als centres, moció de censura per reglament.</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Síndic / Síndica de Greuges</td>
-                  <td class="py-3.5 px-4">Determinat per Estatuts (Principi d'independència i confidencialitat)</td>
-                  <td class="py-3.5 px-4">Unitat bàsica obligatòria a totes les universitats (Art. 43 LOSU).</td>
-                  <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-800 font-bold">5 anys no consecutius</span>. Elegit pel Claustre per majoria de 3/5 dels presents entre persones externes a la URV (Art. 83).</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Síndic / Síndica de Greuges</td>
+                  <td class="py-3 px-4">Determinat per Estatuts (Principi d'independència i confidencialitat)</td>
+                  <td class="py-3 px-4">Unitat bàsica obligatòria a totes les universitats (Art. 43 LOSU).</td>
+                  <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-800 font-bold">5 anys no consecutius</span>. Elegit pel Claustre per majoria de 3/5 dels presents entre persones externes a la URV (Art. 83).</td>
                 </tr>
               </tbody>
             </table>
@@ -265,7 +348,7 @@
 
         <!-- TABLE 2: PERCENTATGES I COMPOSICIONS -->
         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-          <div class="px-6 py-4 bg-slate-900 text-white font-bold text-sm flex items-center justify-between">
+          <div class="px-5 py-3.5 bg-slate-900 text-white font-bold text-sm flex items-center justify-between">
             <span>Taula 2: Percentatges de Composició d'Òrgans i Elecció per Sufragi Ponderat</span>
             <span class="text-xs text-indigo-300 font-normal">LOSU Arts. 45, 46, 51 &bull; URV Arts. 30, 36, 38, 41, 46</span>
           </div>
@@ -273,47 +356,47 @@
             <table class="w-full text-left text-sm text-slate-700">
               <thead class="bg-slate-100/75 border-b border-slate-200 text-xs font-bold text-slate-600 uppercase">
                 <tr>
-                  <th class="py-3.5 px-4">Òrgan / Procés</th>
-                  <th class="py-3.5 px-4">PDI Permanent (Cossos Docents + Permanent Laboral)</th>
-                  <th class="py-3.5 px-4">Resta Personal Acadèmic / PDI No Permanent</th>
-                  <th class="py-3.5 px-4">Estudiantat</th>
-                  <th class="py-3.5 px-4">PTGAS (Personal Tècnic de Gestió i Administració)</th>
+                  <th class="py-3 px-4">Òrgan / Procés</th>
+                  <th class="py-3 px-4">PDI Permanent</th>
+                  <th class="py-3 px-4">Resta Personal Acadèmic</th>
+                  <th class="py-3 px-4">Estudiantat</th>
+                  <th class="py-3 px-4">PTGAS</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-slate-200 font-medium">
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Elecció de Rector/a (Ponderació de vot)</td>
-                  <td class="py-3.5 px-4 text-emerald-700 font-bold bg-emerald-50/50">Mínim 51% (LOSU) / 51% (0,51 a la URV)</td>
-                  <td class="py-3.5 px-4 text-indigo-700">12% (0,12 a la URV)</td>
-                  <td class="py-3.5 px-4 text-amber-700">20% (0,20 a la URV)</td>
-                  <td class="py-3.5 px-4 text-rose-700">17% (0,17 a la URV)</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Elecció de Rector/a (Ponderació de vot)</td>
+                  <td class="py-3 px-4 text-emerald-700 font-bold bg-emerald-50/50">Mínim 51% (LOSU) / 51% (0,51 a la URV)</td>
+                  <td class="py-3 px-4 text-indigo-700">12% (0,12 a la URV)</td>
+                  <td class="py-3 px-4 text-amber-700">20% (0,20 a la URV)</td>
+                  <td class="py-3 px-4 text-rose-700">17% (0,17 a la URV)</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Claustre Universitari</td>
-                  <td class="py-3.5 px-4">Mínim 51% per llei.<br><span class="text-xs text-slate-500">A la URV: PDI total són 124 membres (amb majoria absoluta permanent).</span></td>
-                  <td class="py-3.5 px-4">Inclòs proporcionalment a la quota dels 124 PDI.</td>
-                  <td class="py-3.5 px-4 font-bold">Mínim 25% (LOSU).<br><span class="text-xs text-slate-500">A la URV: 52 membres (49 grau/màster + 3 doctorat) = ~25,6%.</span></td>
-                  <td class="py-3.5 px-4">Representació fixada estatutàriament.<br><span class="text-xs text-slate-500">A la URV: 24 membres (funcionaris i laborals).</span></td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Claustre Universitari</td>
+                  <td class="py-3 px-4">Mínim 51% per llei.<br><span class="text-xs text-slate-500">URV: PDI total són 124 membres (majoria absoluta permanent).</span></td>
+                  <td class="py-3 px-4">Inclòs proporcionalment a la quota dels 124 PDI.</td>
+                  <td class="py-3 px-4 font-bold">Mínim 25% (LOSU).<br><span class="text-xs text-slate-500">URV: 52 membres (49 grau/màster + 3 doctorat).</span></td>
+                  <td class="py-3 px-4">Representació fixada estatutàriament.<br><span class="text-xs text-slate-500">URV: 24 membres.</span></td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Consell de Govern</td>
-                  <td class="py-3.5 px-4">Majoria de PDI funcionari i laboral permanent. 1/3 triat pel Rector/a incloent nats.</td>
-                  <td class="py-3.5 px-4">Presència assegurada de PDI no permanent, investigador no permanent i associats.</td>
-                  <td class="py-3.5 px-4 font-bold">Mínim 10% (LOSU).<br><span class="text-xs text-slate-500">URV: 8 membres elegits pel Claustre (1 doctorand).</span></td>
-                  <td class="py-3.5 px-4 font-bold">Mínim 10% (LOSU).<br><span class="text-xs text-slate-500">URV: 8 membres elegits pel Claustre.</span></td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Consell de Govern</td>
+                  <td class="py-3 px-4">Majoria de PDI permanent. 1/3 designat pel Rector/a incloent nats.</td>
+                  <td class="py-3 px-4">Presència garantida de PDI no permanent, investigador no permanent i associats.</td>
+                  <td class="py-3 px-4 font-bold">Mínim 10% (LOSU).<br><span class="text-xs text-slate-500">URV: 8 membres elegits pel Claustre (1 doctorand).</span></td>
+                  <td class="py-3 px-4 font-bold">Mínim 10% (LOSU).<br><span class="text-xs text-slate-500">URV: 8 membres elegits pel Claustre.</span></td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Consell de Facultat o Escola (URV)</td>
-                  <td class="py-3.5 px-4 font-bold text-indigo-700" colspan="2">62% PDI total (amb majoria de PDI amb vinculació permanent).</td>
-                  <td class="py-3.5 px-4 font-bold text-amber-700">26% Estudiants</td>
-                  <td class="py-3.5 px-4 font-bold text-rose-700">12% PTGAS</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Consell de Facultat o Escola (URV)</td>
+                  <td class="py-3 px-4 font-bold text-indigo-700" colspan="2">62% PDI total (majoria de PDI amb vinculació permanent).</td>
+                  <td class="py-3 px-4 font-bold text-amber-700">26% Estudiants</td>
+                  <td class="py-3 px-4 font-bold text-rose-700">12% PTGAS</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Consell de Departament (URV)</td>
-                  <td class="py-3.5 px-4">Tot el PDI permanent adscrit.</td>
-                  <td class="py-3.5 px-4">Mínim 1 de cada 6 doctors temporals TC; 1 de cada 6 predoctorals; 1 de cada 6 resta PDI.</td>
-                  <td class="py-3.5 px-4 font-bold">Mínim 25% del total de membres del consell.</td>
-                  <td class="py-3.5 px-4">Tots els membres a TC en RLT + 1 de cada 6 de la resta.</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Consell de Departament (URV)</td>
+                  <td class="py-3 px-4">Tot el PDI permanent adscrit.</td>
+                  <td class="py-3 px-4">Mínim 1 de cada 6 doctors temporals TC; 1 de cada 6 predoctorals; 1 de cada 6 resta PDI.</td>
+                  <td class="py-3 px-4 font-bold">Mínim 25% del total de membres del consell.</td>
+                  <td class="py-3 px-4">Tots els membres a TC en RLT + 1 de cada 6 de la resta.</td>
                 </tr>
               </tbody>
             </table>
@@ -322,7 +405,7 @@
 
         <!-- TABLE 3: XIFRES ECONOMICOFINANCERES I LABORALS -->
         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-          <div class="px-6 py-4 bg-slate-900 text-white font-bold text-sm flex items-center justify-between">
+          <div class="px-5 py-3.5 bg-slate-900 text-white font-bold text-sm flex items-center justify-between">
             <span>Taula 3: Llindars Financers, Jornada Docent i Ràtios de Personal (LOSU)</span>
             <span class="text-xs text-indigo-300 font-normal">LOSU Arts. 55, 57, 64, 71, 75, 78, 79, 129</span>
           </div>
@@ -330,61 +413,61 @@
             <table class="w-full text-left text-sm text-slate-700">
               <thead class="bg-slate-100/75 border-b border-slate-200 text-xs font-bold text-slate-600 uppercase">
                 <tr>
-                  <th class="py-3.5 px-4">Concepte Jurídic</th>
-                  <th class="py-3.5 px-4">Límit / Percentatge Fixat per Llei</th>
-                  <th class="py-3.5 px-4">Comentari i Finalitat Oposició</th>
+                  <th class="py-3 px-4">Concepte Jurídic</th>
+                  <th class="py-3 px-4">Límit / Percentatge Fixat per Llei</th>
+                  <th class="py-3 px-4">Comentari i Finalitat Oposició</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-slate-200 font-medium">
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Despesa pública en educació universitària</td>
-                  <td class="py-3.5 px-4 font-bold text-indigo-600">Mínim de l'1% del PIB (Art. 55.2)</td>
-                  <td class="py-3.5 px-4">Objectiu compartit entre Estat, comunitats autònomes i universitats per a l'any 2030.</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Despesa pública en educació universitària</td>
+                  <td class="py-3 px-4 font-bold text-indigo-600">Mínim de l'1% del PIB (Art. 55.2)</td>
+                  <td class="py-3 px-4">Objectiu compartit entre Estat, comunitats autònomes i universitats per a l'any 2030.</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Fons per a programes propis de recerca</td>
-                  <td class="py-3.5 px-4 font-bold text-indigo-600">Mínim del 5% del pressupost (Art. 57.7 i Art. 100.3)</td>
-                  <td class="py-3.5 px-4">Obligatori tant per a universitats públiques com privades.</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Fons per a programes propis de recerca</td>
+                  <td class="py-3 px-4 font-bold text-indigo-600">Mínim del 5% del pressupost (Art. 57.7 i Art. 100.3)</td>
+                  <td class="py-3 px-4">Obligatori tant per a universitats públiques com privades.</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Topall de temporalitat del PDI</td>
-                  <td class="py-3.5 px-4 font-bold text-rose-600">Màxim 8% de la plantilla (Art. 64.3)</td>
-                  <td class="py-3.5 px-4">Reducció radical respecte al 40% de la LOU. No computen associats sanitaris ni ajudants doctors.</td>
+                  <td class="py-3 px-4 font-bold text-rose-600">Topall de temporalitat del PDI</td>
+                  <td class="py-3 px-4 font-bold text-rose-600">Màxim 8% de la plantilla (Art. 64.3)</td>
+                  <td class="py-3 px-4">Reducció radical respecte al 40% de la LOU. No computen associats sanitaris ni ajudants doctors.</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Majoria de PDI funcionari</td>
-                  <td class="py-3.5 px-4 font-bold text-emerald-600">&gt; 50% en equivalències a temps complet (Art. 64.3)</td>
-                  <td class="py-3.5 px-4">El PDI funcionari ha de ser majoritari sobre el total de PDI de la universitat.</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Majoria de PDI funcionari</td>
+                  <td class="py-3 px-4 font-bold text-emerald-600">&gt; 50% en equivalències a temps complet (Art. 64.3)</td>
+                  <td class="py-3 px-4">El PDI funcionari ha de ser majoritari sobre el total de PDI de la universitat.</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Reserva de places per a investigadors R3 / I3</td>
-                  <td class="py-3.5 px-4 font-bold text-indigo-600">Mínim del 15% del total de places (Art. 71.1.c)</td>
-                  <td class="py-3.5 px-4">Reserva anual per a doctorats amb certificat R3 o Programa d'incentivació I3 en cossos docents i permanents.</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Reserva de places per a investigadors R3 / I3</td>
+                  <td class="py-3 px-4 font-bold text-indigo-600">Mínim del 15% del total de places (Art. 71.1.c)</td>
+                  <td class="py-3 px-4">Reserva anual per a doctors amb certificat R3 o avaluació del Programa I3 en cossos docents i permanents.</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Jornada docent PDI funcionari a Temps Complet</td>
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Forquilla de 120 a 240 hores lectives / curs (Art. 75.2)</td>
-                  <td class="py-3.5 px-4">Modificable per càrrecs unipersonals, cures familiars o representació sindical.</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Jornada docent PDI funcionari a Temps Complet</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Forquilla de 120 a 240 hores lectives / curs (Art. 75.2)</td>
+                  <td class="py-3 px-4">Modificable per càrrecs unipersonals, cures familiars o representació sindical.</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Professorat Ajudant Doctor</td>
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Màxim 6 anys de contracte (Art. 78) / Màx. 180h docència</td>
-                  <td class="py-3.5 px-4">No requereix acreditació prèvia. Curs de formació docent el primer any. Avaluació orientativa als 3 anys.</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Professorat Ajudant Doctor</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Màxim 6 anys de contracte (Art. 78) / Màx. 180h docència</td>
+                  <td class="py-3 px-4">No requereix acreditació prèvia. Curs de formació docent el 1r any. Avaluació als 3 anys.</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Professorat Associat</td>
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Contracte indefinit a temps parcial / Màx. 120h docència</td>
-                  <td class="py-3.5 px-4">Especialistes amb activitat principal fora de l'acadèmia. No tenen funcions de coordinació ni gestió.</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Professorat Associat</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Contracte indefinit a temps parcial / Màx. 120h docència</td>
+                  <td class="py-3 px-4">Especialistes amb activitat principal fora de l'acadèmia. No assumeixen funcions de gestió estructurals.</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Reserva de places en títols per discapacitat</td>
-                  <td class="py-3.5 px-4 font-bold text-indigo-600">Mínim del 5% de places (Art. 31.4)</td>
-                  <td class="py-3.5 px-4">Reserva obligatòria en graus, màsters i programes de doctorat oficials.</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Reserva de places en títols per discapacitat</td>
+                  <td class="py-3 px-4 font-bold text-indigo-600">Mínim del 5% de places (Art. 31.4)</td>
+                  <td class="py-3 px-4">Reserva obligatòria en graus, màsters i programes de doctorat oficials.</td>
                 </tr>
                 <tr class="hover:bg-slate-50">
-                  <td class="py-3.5 px-4 font-bold text-slate-900">Personal eventual de confiança (Estatut URV)</td>
-                  <td class="py-3.5 px-4 font-bold text-rose-600">Màxim 5% del total de PTGAS (Art. 129.3 URV)</td>
-                  <td class="py-3.5 px-4">Nomenat pel Rector/a. Condicions retributives comunicades al Consell Social de manera individualitzada.</td>
+                  <td class="py-3 px-4 font-bold text-slate-900">Personal eventual de confiança (Estatut URV)</td>
+                  <td class="py-3 px-4 font-bold text-rose-600">Màxim 5% del total de PTGAS (Art. 129.3 URV)</td>
+                  <td class="py-3 px-4">Nomenat pel Rector/a. Condicions retributives comunicades al Consell Social de manera individualitzada.</td>
                 </tr>
               </tbody>
             </table>
@@ -396,12 +479,11 @@
   </div>
 
   <footer class="mt-auto border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500">
-    <p>Guia Sistemàtica per a Oposicions &bull; Síntesi literal i estructurada de la LOSU (Llei Orgànica 2/2023) i l'Estatut URV (Acord GOV/244/2025).</p>
+    <p>Oposicions &bull; Plataforma d'estudi amb seguiment interactiu del temari jurídic universitari.</p>
   </footer>
 
-  <!-- DATA OBJECT AND CLIENT ENGINE -->
+  <!-- JAVASCRIPT ENGINE & DATA -->
   <script>
-    // Exhaustive dataset for LOSU (102 pages) and URV (52 pages)
     const losuData = [
       {
         id: "losu-preambul",
@@ -987,7 +1069,117 @@
     ];
 
     let currentDoc = 'losu';
+    let currentFilter = 'all';
     let allExpanded = false;
+
+    // Study state stored in localStorage: { [blockId]: { status: 'pendent'|'revisar'|'estudiat', relevant: boolean } }
+    function getStoredState() {
+      try {
+        const data = localStorage.getItem('oposicions_study_state');
+        return data ? JSON.parse(data) : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveState(state) {
+      try {
+        localStorage.setItem('oposicions_study_state', JSON.stringify(state));
+      } catch (e) {}
+    }
+
+    function getItemState(id) {
+      const state = getStoredState();
+      return state[id] || { status: 'pendent', relevant: false };
+    }
+
+    function updateItemStatus(id, newStatus) {
+      const state = getStoredState();
+      if (!state[id]) state[id] = { status: 'pendent', relevant: false };
+      state[id].status = newStatus;
+      saveState(state);
+      refreshCardAppearance(id);
+      updateDashboardStats();
+    }
+
+    function toggleItemRelevant(id) {
+      const state = getStoredState();
+      if (!state[id]) state[id] = { status: 'pendent', relevant: false };
+      state[id].relevant = !state[id].relevant;
+      saveState(state);
+      refreshCardAppearance(id);
+      updateDashboardStats();
+    }
+
+    function resetAllProgress() {
+      if (confirm("Vols reiniciar l'estat d'estudi (estudiats, pendents i rellevants)?")) {
+        localStorage.removeItem('oposicions_study_state');
+        renderBlocks();
+        updateDashboardStats();
+      }
+    }
+
+    function refreshCardAppearance(id) {
+      const card = document.getElementById(id);
+      if (!card) return;
+
+      const itemState = getItemState(id);
+      
+      // Border indicator
+      card.classList.remove('card-glow-estudiat', 'card-glow-revisar', 'card-glow-pendent');
+      card.classList.add(`card-glow-${itemState.status}`);
+
+      // Update button styles inside card
+      const btnEstudiat = document.getElementById(`btn-estudiat-${id}`);
+      const btnRevisar = document.getElementById(`btn-revisar-${id}`);
+      const btnPendent = document.getElementById(`btn-pendent-${id}`);
+      const btnRel = document.getElementById(`btn-rel-${id}`);
+      const badgeStatus = document.getElementById(`badge-status-${id}`);
+
+      if (btnEstudiat) {
+        btnEstudiat.className = itemState.status === 'estudiat' 
+          ? "px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-600 text-white shadow-sm flex items-center gap-1"
+          : "px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-emerald-50 text-slate-600 hover:text-emerald-700 transition flex items-center gap-1";
+      }
+
+      if (btnRevisar) {
+        btnRevisar.className = itemState.status === 'revisar' 
+          ? "px-2.5 py-1 rounded-lg text-xs font-bold bg-amber-500 text-white shadow-sm flex items-center gap-1"
+          : "px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-amber-50 text-slate-600 hover:text-amber-700 transition flex items-center gap-1";
+      }
+
+      if (btnPendent) {
+        btnPendent.className = itemState.status === 'pendent' 
+          ? "px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-600 text-white shadow-sm flex items-center gap-1"
+          : "px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-700 transition flex items-center gap-1";
+      }
+
+      if (btnRel) {
+        btnRel.className = itemState.relevant
+          ? "p-1.5 rounded-lg text-rose-600 bg-rose-50 border border-rose-200 transition"
+          : "p-1.5 rounded-lg text-slate-300 hover:text-rose-500 hover:bg-slate-50 border border-transparent transition";
+        const svg = btnRel.querySelector('svg');
+        if (svg) {
+          svg.setAttribute('class', itemState.relevant ? 'w-4 h-4 fill-rose-500 text-rose-500' : 'w-4 h-4 fill-none text-current');
+        }
+      }
+
+      if (badgeStatus) {
+        if (itemState.status === 'estudiat') {
+          badgeStatus.className = "text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 flex items-center gap-1";
+          badgeStatus.innerHTML = "<span class='w-1.5 h-1.5 rounded-full bg-emerald-500'></span> Estudiat";
+        } else if (itemState.status === 'revisar') {
+          badgeStatus.className = "text-[11px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 flex items-center gap-1";
+          badgeStatus.innerHTML = "<span class='w-1.5 h-1.5 rounded-full bg-amber-500'></span> Pendent de repàs";
+        } else {
+          badgeStatus.className = "text-[11px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 flex items-center gap-1";
+          badgeStatus.innerHTML = "<span class='w-1.5 h-1.5 rounded-full bg-slate-400'></span> Pendent";
+        }
+      }
+
+      // If active filter does not match, apply filter visibility
+      applyCurrentFilter();
+    }
 
     function renderBlocks() {
       const losuContainer = document.getElementById('losu-blocks');
@@ -996,12 +1188,18 @@
       losuContainer.innerHTML = losuData.map((item, idx) => createBlockHtml(item, 'losu', idx)).join('');
       urvContainer.innerHTML = urvData.map((item, idx) => createBlockHtml(item, 'urv', idx)).join('');
 
+      // Apply saved states
+      [...losuData, ...urvData].forEach(item => {
+        refreshCardAppearance(item.id);
+      });
+
       updateSidebar();
+      updateDashboardStats();
     }
 
     function createBlockHtml(item, docType, index) {
       const accentBg = docType === 'losu' ? 'bg-indigo-50 border-indigo-200 text-indigo-700' : 'bg-rose-50 border-rose-200 text-rose-700';
-      const badgeClass = docType === 'losu' ? 'text-indigo-600' : 'text-rose-600';
+      const itemState = getItemState(item.id);
       
       const detailsList = item.details.map(d => `
         <div class="border-l-2 border-slate-200 pl-4 py-1 hover:border-indigo-400 transition-colors">
@@ -1011,26 +1209,64 @@
       `).join('');
 
       return `
-        <article class="content-block bg-white rounded-2xl border border-slate-200/90 shadow-sm transition hover:shadow-md overflow-hidden" id="${item.id}" data-doc="${docType}">
-          <header class="p-5 sm:p-6 cursor-pointer flex items-start justify-between gap-4 select-none" onclick="toggleAccordion('${item.id}')">
-            <div class="space-y-1.5 flex-1">
+        <article class="content-block bg-white rounded-2xl border border-slate-200 shadow-sm transition hover:shadow-md overflow-hidden card-glow-${itemState.status}" id="${item.id}" data-doc="${docType}">
+          
+          <!-- Card Header -->
+          <div class="p-5 sm:p-6 select-none">
+            
+            <div class="flex items-center justify-between gap-3 mb-3">
               <div class="flex flex-wrap items-center gap-2">
                 <span class="px-2.5 py-0.5 rounded-full text-xs font-bold border ${accentBg}">${item.num}</span>
                 <span class="text-xs font-mono font-medium text-slate-500">${item.pages}</span>
+                <span id="badge-status-${item.id}"></span>
               </div>
-              <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight block-title">${item.title}</h3>
-              <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">${item.summary}</p>
-            </div>
-            <div class="p-2 rounded-xl bg-slate-100 text-slate-500 hover:text-slate-900 transition-transform duration-200 flex-shrink-0" id="icon-${item.id}">
-              <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-            </div>
-          </header>
 
-          <div class="accordion-body hidden px-5 pb-6 sm:px-6 pt-2 border-t border-slate-100" id="body-${item.id}">
+              <!-- Action button: Bookmark / Rellevant -->
+              <div class="flex items-center gap-1.5">
+                <button onclick="toggleItemRelevant('${item.id}')" id="btn-rel-${item.id}" title="Marcar com a rellevant / imprescindible per a l'examen" class="p-1.5 rounded-lg text-slate-300 hover:text-rose-500 transition">
+                  <svg class="w-4 h-4 fill-none text-current" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Title & Summary Click to Toggle -->
+            <div class="cursor-pointer" onclick="toggleAccordion('${item.id}')">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="text-base sm:text-lg font-bold text-slate-900 tracking-tight block-title hover:text-indigo-600 transition">${item.title}</h3>
+                <div class="p-1.5 rounded-lg bg-slate-100 text-slate-500 flex-shrink-0 transition-transform duration-200" id="icon-${item.id}">
+                  <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-500 leading-relaxed mt-1">${item.summary}</p>
+            </div>
+
+            <!-- Study Status Buttons Bar -->
+            <div class="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
+              <span class="text-[11px] font-semibold text-slate-400">Estat d'aprenentatge:</span>
+              <div class="inline-flex rounded-xl p-0.5 bg-slate-100/90 border border-slate-200/80 gap-1">
+                <button onclick="updateItemStatus('${item.id}', 'estudiat')" id="btn-estudiat-${item.id}">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  Estudiat
+                </button>
+                <button onclick="updateItemStatus('${item.id}', 'revisar')" id="btn-revisar-${item.id}">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                  Revisar
+                </button>
+                <button onclick="updateItemStatus('${item.id}', 'pendent')" id="btn-pendent-${item.id}">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  Pendent
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Body with Exhaustive Details -->
+          <div class="accordion-body hidden px-5 pb-6 sm:px-6 pt-2 border-t border-slate-100 bg-slate-50/50" id="body-${item.id}">
             <dl class="space-y-4 prose-legal mt-3">
               ${detailsList}
             </dl>
-            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400 font-mono">
+            <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs text-slate-400 font-mono">
               <span class="flex items-center gap-1.5 font-semibold text-slate-600">
                 <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                 ${item.ref}
@@ -1050,10 +1286,10 @@
       const isHidden = body.classList.contains('hidden');
       if (isHidden) {
         body.classList.remove('hidden');
-        icon.classList.add('rotate-180', 'bg-indigo-50', 'text-indigo-600');
+        if (icon) icon.classList.add('rotate-180', 'bg-indigo-50', 'text-indigo-600');
       } else {
         body.classList.add('hidden');
-        icon.classList.remove('rotate-180', 'bg-indigo-50', 'text-indigo-600');
+        if (icon) icon.classList.remove('rotate-180', 'bg-indigo-50', 'text-indigo-600');
       }
     }
 
@@ -1067,30 +1303,114 @@
       const secLosu = document.getElementById('section-losu');
       const secUrv = document.getElementById('section-urv');
       const secComp = document.getElementById('section-comparativa');
+      const badgeDoc = document.getElementById('doc-badge-name');
 
-      // Reset tabs
       [tabLosu, tabUrv, tabComp].forEach(t => {
-        t.className = "doc-tab px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all bg-white text-slate-700 hover:bg-slate-200/60 border border-slate-200";
+        t.className = "doc-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 transition-all bg-slate-100 text-slate-700 hover:bg-slate-200/70 border border-transparent";
       });
 
-      // Hide all sections
       secLosu.classList.add('hidden');
       secUrv.classList.add('hidden');
       secComp.classList.add('hidden');
 
       if (doc === 'losu') {
-        tabLosu.className = "doc-tab px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all bg-indigo-600 text-white shadow-sm";
+        tabLosu.className = "doc-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 transition-all bg-indigo-600 text-white shadow-sm shadow-indigo-100";
         secLosu.classList.remove('hidden');
+        badgeDoc.textContent = "LOSU";
+        badgeDoc.className = "text-xs px-2.5 py-0.5 rounded-full font-bold bg-indigo-50 text-indigo-700 border border-indigo-200";
       } else if (doc === 'urv') {
-        tabUrv.className = "doc-tab px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all bg-rose-600 text-white shadow-sm";
+        tabUrv.className = "doc-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 transition-all bg-rose-600 text-white shadow-sm shadow-rose-100";
         secUrv.classList.remove('hidden');
+        badgeDoc.textContent = "Estatut URV";
+        badgeDoc.className = "text-xs px-2.5 py-0.5 rounded-full font-bold bg-rose-50 text-rose-700 border border-rose-200";
       } else if (doc === 'comparativa') {
-        tabComp.className = "doc-tab px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all bg-slate-900 text-white shadow-sm";
+        tabComp.className = "doc-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 transition-all bg-slate-900 text-white shadow-sm";
         secComp.classList.remove('hidden');
+        badgeDoc.textContent = "Comparativa";
+        badgeDoc.className = "text-xs px-2.5 py-0.5 rounded-full font-bold bg-amber-50 text-amber-700 border border-amber-200";
       }
 
+      setFilter('all');
       updateSidebar();
+      updateDashboardStats();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function setFilter(filterType) {
+      currentFilter = filterType;
+      
+      const filterBtns = ['all', 'estudiat', 'revisar', 'pendent', 'relevant'];
+      filterBtns.forEach(type => {
+        const btn = document.getElementById(`filter-${type}`);
+        if (!btn) return;
+
+        if (type === filterType) {
+          btn.classList.add('ring-2', 'ring-indigo-600', 'bg-indigo-50/50');
+        } else {
+          btn.classList.remove('ring-2', 'ring-indigo-600', 'bg-indigo-50/50');
+        }
+      });
+
+      applyCurrentFilter();
+    }
+
+    function applyCurrentFilter() {
+      const activeData = currentDoc === 'losu' ? losuData : urvData;
+      
+      activeData.forEach(item => {
+        const card = document.getElementById(item.id);
+        if (!card) return;
+
+        const state = getItemState(item.id);
+        let show = true;
+
+        if (currentFilter === 'estudiat') {
+          show = state.status === 'estudiat';
+        } else if (currentFilter === 'revisar') {
+          show = state.status === 'revisar';
+        } else if (currentFilter === 'pendent') {
+          show = state.status === 'pendent';
+        } else if (currentFilter === 'relevant') {
+          show = state.relevant === true;
+        }
+
+        // Apply search check as well
+        const q = document.getElementById('searchInput').value.toLowerCase().trim();
+        if (q.length > 0 && !card.textContent.toLowerCase().includes(q)) {
+          show = false;
+        }
+
+        card.style.display = show ? '' : 'none';
+      });
+    }
+
+    function updateDashboardStats() {
+      const activeData = currentDoc === 'losu' ? losuData : urvData;
+      let countEstudiat = 0;
+      let countRevisar = 0;
+      let countPendent = 0;
+      let countRelevant = 0;
+
+      activeData.forEach(item => {
+        const state = getItemState(item.id);
+        if (state.status === 'estudiat') countEstudiat++;
+        else if (state.status === 'revisar') countRevisar++;
+        else countPendent++;
+
+        if (state.relevant) countRelevant++;
+      });
+
+      const total = activeData.length;
+      const percent = total > 0 ? Math.round((countEstudiat / total) * 100) : 0;
+
+      document.getElementById('count-all').textContent = total;
+      document.getElementById('count-estudiat').textContent = countEstudiat;
+      document.getElementById('count-revisar').textContent = countRevisar;
+      document.getElementById('count-pendent').textContent = countPendent;
+      document.getElementById('count-relevant').textContent = countRelevant;
+
+      document.getElementById('progress-percent').textContent = `${percent}%`;
+      document.getElementById('progress-bar-fill').style.width = `${percent}%`;
     }
 
     function updateSidebar() {
@@ -1100,9 +1420,9 @@
 
       if (currentDoc === 'comparativa') {
         nav.innerHTML = `
-          <a href="#section-comparativa" class="block py-2 px-3 rounded-lg text-slate-700 hover:bg-slate-100 transition">Taula 1: Mandats i Càrrecs</a>
-          <a href="#section-comparativa" class="block py-2 px-3 rounded-lg text-slate-700 hover:bg-slate-100 transition">Taula 2: Percentatges d'Òrgans</a>
-          <a href="#section-comparativa" class="block py-2 px-3 rounded-lg text-slate-700 hover:bg-slate-100 transition">Taula 3: Llindars Financers i PDI</a>
+          <a href="#section-comparativa" class="block py-2 px-3 rounded-xl text-slate-700 hover:bg-slate-100 transition text-xs font-semibold">Taula 1: Mandats i Càrrecs</a>
+          <a href="#section-comparativa" class="block py-2 px-3 rounded-xl text-slate-700 hover:bg-slate-100 transition text-xs font-semibold">Taula 2: Percentatges d'Òrgans</a>
+          <a href="#section-comparativa" class="block py-2 px-3 rounded-xl text-slate-700 hover:bg-slate-100 transition text-xs font-semibold">Taula 3: Llindars Financers i PDI</a>
         `;
         count.textContent = "3 taules";
         return;
@@ -1160,33 +1480,25 @@
       btnText.textContent = allExpanded ? "Plega-ho tot" : "Desplega-ho tot";
     });
 
-    // Realtime Search
-    document.getElementById('searchInput').addEventListener('input', (e) => {
-      const q = e.target.value.toLowerCase().trim();
-      const currentBlocks = document.querySelectorAll(currentDoc === 'losu' ? '#losu-blocks .content-block' : '#urv-blocks .content-block');
+    // Realtime Search with clear button
+    const searchInput = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('clearSearchBtn');
 
-      currentBlocks.forEach(block => {
-        const text = block.textContent.toLowerCase();
-        if (text.includes(q)) {
-          block.style.display = '';
-          if (q.length > 2) {
-            const body = block.querySelector('.accordion-body');
-            const icon = block.querySelector('[id^="icon-"]');
-            if (body && body.classList.contains('hidden')) {
-              body.classList.remove('hidden');
-              if (icon) icon.classList.add('rotate-180', 'bg-indigo-50', 'text-indigo-600');
-            }
-          }
-        } else {
-          block.style.display = 'none';
-        }
-      });
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      clearBtn.classList.toggle('hidden', q.length === 0);
+      applyCurrentFilter();
     });
 
-    // Init
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      clearBtn.classList.add('hidden');
+      applyCurrentFilter();
+    });
+
+    // Initializer
     window.addEventListener('DOMContentLoaded', () => {
       renderBlocks();
-      // Expand the first block of LOSU by default
       toggleAccordion('losu-preambul');
     });
   </script>
