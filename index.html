@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oposicions - Temari Exhaustiu LOSU i Estatut URV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"Fira Code"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            },
+            urv: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              500: '#f43f5e',
+              600: '#e11d48',
+              700: '#be123c',
+              800: '#9f1239',
+              900: '#881337',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    .prose-legal dt {
+      font-weight: 700;
+      color: #1e293b;
+      margin-top: 0.75rem;
+    }
+    .prose-legal dd {
+      margin-left: 0;
+      color: #334155;
+      line-height: 1.625;
+      margin-bottom: 0.5rem;
+    }
+    .highlight-match {
+      background-color: #fef08a;
+      color: #854d0e;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <!-- TOP APP BAR -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-700 to-rose-600 flex items-center justify-center text-white shadow-md shadow-indigo-200">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <div>
+            <h1 class="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
+              Oposicions
+              <span class="text-xs px-2.5 py-0.5 rounded-full font-bold bg-indigo-50 text-indigo-700 border border-indigo-200/60 uppercase tracking-wider">Compendi Jurídic</span>
+            </h1>
+            <p class="text-xs text-slate-500 font-medium">Temari Exhaustiu: Llei Orgànica 2/2023 (LOSU) &bull; Estatut URV 2025</p>
+          </div>
+        </div>
+
+        <!-- SEARCH BAR & ACTIONS -->
+        <div class="flex items-center gap-3">
+          <div class="relative w-64 md:w-80">
+            <input type="text" id="searchInput" placeholder="Cerca articles, quòrums, percentatges..." 
+              class="w-full bg-slate-100 hover:bg-slate-200/70 focus:bg-white text-sm text-slate-800 placeholder-slate-400 pl-9 pr-4 py-2 rounded-xl border border-transparent focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-100 transition-all">
+            <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <button id="toggleAllBtn" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 transition shadow-sm">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            <span id="toggleAllText">Desplega-ho tot</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOCUMENT SWITCHER TABS -->
+    <div class="bg-slate-100/80 border-t border-slate-200/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between overflow-x-auto">
+        <div class="flex gap-2 py-2">
+          <button onclick="switchDoc('losu')" id="tab-losu" class="doc-tab px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all bg-indigo-600 text-white shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-white"></span>
+            LOSU (Llei Orgànica 2/2023)
+            <span class="text-xs bg-indigo-500/50 px-1.5 py-0.5 rounded font-mono">102 pàg.</span>
+          </button>
+          <button onclick="switchDoc('urv')" id="tab-urv" class="doc-tab px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all bg-white text-slate-700 hover:bg-slate-200/60 border border-slate-200">
+            <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+            Estatut URV (Acord GOV/244/2025)
+            <span class="text-xs bg-slate-200 px-1.5 py-0.5 rounded font-mono text-slate-600">52 pàg.</span>
+          </button>
+          <button onclick="switchDoc('comparativa')" id="tab-comparativa" class="doc-tab px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all bg-white text-slate-700 hover:bg-slate-200/60 border border-slate-200">
+            <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            Taula de Quòrums &amp; Xifres Clau
+          </button>
+        </div>
+        <div class="hidden lg:flex items-center text-xs text-slate-500 gap-4">
+          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Contingut Literal Consolidat</span>
+          <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-indigo-500"></span> Preparat per a Temaris Oposició</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
+    
+    <!-- LEFT SIDEBAR: FAST INDEX -->
+    <aside class="hidden lg:block lg:col-span-3">
+      <div class="sticky top-32 space-y-4">
+        <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center justify-between">
+            Índex Sistemàtic
+            <span id="nav-count" class="font-mono text-indigo-600 bg-indigo-50 px-1.5 py-0.5 rounded text-[11px]"></span>
+          </h2>
+          <nav id="sidebar-nav" class="custom-scroll max-h-[calc(100vh-220px)] overflow-y-auto space-y-1 text-sm font-medium pr-1">
+            <!-- Nav items inserted by JS -->
+          </nav>
+        </div>
+
+        <div class="bg-gradient-to-br from-indigo-900 to-slate-900 text-white rounded-2xl p-4 shadow-md text-xs space-y-2">
+          <div class="font-bold text-indigo-300 uppercase tracking-wider">Clau d'Oposició</div>
+          <p class="text-slate-300 leading-relaxed">
+            Recorda que a les proves selectives solen preguntar terminis (mesos/anys), percentatges d'òrgans col·legiats, quòrums de votació i competències exclusives del Rectorat vs. Consell Social vs. Consell de Govern.
+          </p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT VIEW -->
+    <main class="lg:col-span-9 space-y-6" id="main-content">
+      
+      <!-- LOSU SECTION -->
+      <section id="section-losu" class="space-y-6">
+        <!-- HEADER CARD -->
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm relative overflow-hidden">
+          <div class="absolute right-0 top-0 w-96 h-96 bg-indigo-50 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3"></div>
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
+              BOE núm. 70, 23/03/2023 &bull; Text Consolidat
+            </span>
+            <span class="text-xs text-slate-500 font-mono font-medium">Fitxer: 2043462.pdf (102 pàgines)</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Llei Orgànica 2/2023, de 22 de març, del Sistema Universitari (LOSU)</h2>
+          <p class="mt-2 text-slate-600 text-sm sm:text-base leading-relaxed">
+            Estructura normativa bàsica de l'educació superior universitària a l'Estat espanyol: principis fundacionals, dret fonamental d'autonomia universitària (Art. 27.10 CE), creació i règim jurídic de centres, governança multinivell, finançament i règim estatutari complet del Personal Docent i Investigador (PDI) i Personal Tècnic, de Gestió i d'Administració i Serveis (PTGAS).
+          </p>
+        </div>
+
+        <!-- ACCORDION BLOCKS CONTAINER (LOSU) -->
+        <div class="space-y-4" id="losu-blocks">
+          <!-- Dynamically populated or statically rendered below -->
+        </div>
+      </section>
+
+      <!-- URV SECTION -->
+      <section id="section-urv" class="space-y-6 hidden">
+        <!-- HEADER CARD -->
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm relative overflow-hidden">
+          <div class="absolute right-0 top-0 w-96 h-96 bg-rose-50 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3"></div>
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-rose-50 text-rose-700 border border-rose-200">
+              Acord GOV/244/2025, de 21 d'octubre &bull; DOGC núm. 9526, 23/10/2025
+            </span>
+            <span class="text-xs text-slate-500 font-mono font-medium">Fitxer: DOGC9526_Estatut_URV_2025 (1).pdf (52 pàgines)</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Estatut de la Universitat Rovira i Virgili (URV 2025)</h2>
+          <p class="mt-2 text-slate-600 text-sm sm:text-base leading-relaxed">
+            Norma institucional bàsica de la Universitat Rovira i Virgili: orígens històrics de 1572 i Llei 36/1991, seu i simbologia institucional, règim d'autonomia i llengua pròpia, organització en campus, facultats, escoles i departaments, composició exacta dels òrgans de govern (Claustre, Consell Social, Consell de Govern), Sindicatura de Greuges, règim docent i d'investigació, drets i deures de la comunitat universitària, règim economicofinancer i procediment de reforma estatutària.
+          </p>
+        </div>
+
+        <!-- ACCORDION BLOCKS CONTAINER (URV) -->
+        <div class="space-y-4" id="urv-blocks">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- COMPARATIVA SECTION -->
+      <section id="section-comparativa" class="space-y-6 hidden">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+          <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Quadre Comparatiu &amp; Xifres Crítiques per a Oposicions</h2>
+          <p class="mt-1 text-slate-600 text-sm">Resum mnemotècnic dels llindars legals, percentatges de participació, mandats i terminis taxatius que s'exigeixen en ambdues normes.</p>
+        </div>
+
+        <!-- TABLE 1: ÒRGANS I MANDATS -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="px-6 py-4 bg-slate-900 text-white font-bold text-sm flex items-center justify-between">
+            <span>Taula 1: Mandats, Càrrecs Unipersonals i Requisits</span>
+            <span class="text-xs text-indigo-300 font-normal">LOSU Arts. 44, 50, 51 &bull; URV Arts. 24, 45, 53, 60</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm text-slate-700">
+              <thead class="bg-slate-100/75 border-b border-slate-200 text-xs font-bold text-slate-600 uppercase">
+                <tr>
+                  <th class="py-3.5 px-4">Càrrec / Òrgan</th>
+                  <th class="py-3.5 px-4">Durada del Mandat</th>
+                  <th class="py-3.5 px-4">Requisits LOSU</th>
+                  <th class="py-3.5 px-4">Concreció a l'Estatut URV</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 font-medium">
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Rector / Rectora</td>
+                  <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">6 anys improrrogables</span> (no renovable)</td>
+                  <td class="py-3.5 px-4">PDI permanent doctor a temps complet en actiu; mèrits de recerca, docència i gestió unipersonal.</td>
+                  <td class="py-3.5 px-4">Mínim 3 trams de recerca (sexennis), 3 trams docents (quinquennis) i 3r tram de gestió (Art. 46.1).</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Òrgans Unipersonals Electes</td>
+                  <td class="py-3.5 px-4">6 anys improrrogables i no renovables (Art. 44.3 LOSU).</td>
+                  <td class="py-3.5 px-4">Dedicació a temps complet. Incompatibilitat de tenir més d'un càrrec simultani.</td>
+                  <td class="py-3.5 px-4">Degans/directors d'escola (6 anys), directors departament (6 anys). Directores d'institut: 6 anys + opció a 6 més (Art. 63.3).</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Moció de censura / Eleccions extraordinàries</td>
+                  <td class="py-3.5 px-4">Dissolució immediata de l'òrgan si prospera</td>
+                  <td class="py-3.5 px-4">Iniciativa d'1/3 de membres del Claustre (amb mín. 30% PDI funcionari i permanent). Aprovació per 2/3. Si no prospera, vet d'1 any als sol·licitants.</td>
+                  <td class="py-3.5 px-4">El Claustre pot convocar eleccions a Rector per 1/3 dels membres. Als centres, moció de censura per reglament.</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Síndic / Síndica de Greuges</td>
+                  <td class="py-3.5 px-4">Determinat per Estatuts (Principi d'independència i confidencialitat)</td>
+                  <td class="py-3.5 px-4">Unitat bàsica obligatòria a totes les universitats (Art. 43 LOSU).</td>
+                  <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-800 font-bold">5 anys no consecutius</span>. Elegit pel Claustre per majoria de 3/5 dels presents entre persones externes a la URV (Art. 83).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TABLE 2: PERCENTATGES I COMPOSICIONS -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="px-6 py-4 bg-slate-900 text-white font-bold text-sm flex items-center justify-between">
+            <span>Taula 2: Percentatges de Composició d'Òrgans i Elecció per Sufragi Ponderat</span>
+            <span class="text-xs text-indigo-300 font-normal">LOSU Arts. 45, 46, 51 &bull; URV Arts. 30, 36, 38, 41, 46</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm text-slate-700">
+              <thead class="bg-slate-100/75 border-b border-slate-200 text-xs font-bold text-slate-600 uppercase">
+                <tr>
+                  <th class="py-3.5 px-4">Òrgan / Procés</th>
+                  <th class="py-3.5 px-4">PDI Permanent (Cossos Docents + Permanent Laboral)</th>
+                  <th class="py-3.5 px-4">Resta Personal Acadèmic / PDI No Permanent</th>
+                  <th class="py-3.5 px-4">Estudiantat</th>
+                  <th class="py-3.5 px-4">PTGAS (Personal Tècnic de Gestió i Administració)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 font-medium">
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Elecció de Rector/a (Ponderació de vot)</td>
+                  <td class="py-3.5 px-4 text-emerald-700 font-bold bg-emerald-50/50">Mínim 51% (LOSU) / 51% (0,51 a la URV)</td>
+                  <td class="py-3.5 px-4 text-indigo-700">12% (0,12 a la URV)</td>
+                  <td class="py-3.5 px-4 text-amber-700">20% (0,20 a la URV)</td>
+                  <td class="py-3.5 px-4 text-rose-700">17% (0,17 a la URV)</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Claustre Universitari</td>
+                  <td class="py-3.5 px-4">Mínim 51% per llei.<br><span class="text-xs text-slate-500">A la URV: PDI total són 124 membres (amb majoria absoluta permanent).</span></td>
+                  <td class="py-3.5 px-4">Inclòs proporcionalment a la quota dels 124 PDI.</td>
+                  <td class="py-3.5 px-4 font-bold">Mínim 25% (LOSU).<br><span class="text-xs text-slate-500">A la URV: 52 membres (49 grau/màster + 3 doctorat) = ~25,6%.</span></td>
+                  <td class="py-3.5 px-4">Representació fixada estatutàriament.<br><span class="text-xs text-slate-500">A la URV: 24 membres (funcionaris i laborals).</span></td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Consell de Govern</td>
+                  <td class="py-3.5 px-4">Majoria de PDI funcionari i laboral permanent. 1/3 triat pel Rector/a incloent nats.</td>
+                  <td class="py-3.5 px-4">Presència assegurada de PDI no permanent, investigador no permanent i associats.</td>
+                  <td class="py-3.5 px-4 font-bold">Mínim 10% (LOSU).<br><span class="text-xs text-slate-500">URV: 8 membres elegits pel Claustre (1 doctorand).</span></td>
+                  <td class="py-3.5 px-4 font-bold">Mínim 10% (LOSU).<br><span class="text-xs text-slate-500">URV: 8 membres elegits pel Claustre.</span></td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Consell de Facultat o Escola (URV)</td>
+                  <td class="py-3.5 px-4 font-bold text-indigo-700" colspan="2">62% PDI total (amb majoria de PDI amb vinculació permanent).</td>
+                  <td class="py-3.5 px-4 font-bold text-amber-700">26% Estudiants</td>
+                  <td class="py-3.5 px-4 font-bold text-rose-700">12% PTGAS</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Consell de Departament (URV)</td>
+                  <td class="py-3.5 px-4">Tot el PDI permanent adscrit.</td>
+                  <td class="py-3.5 px-4">Mínim 1 de cada 6 doctors temporals TC; 1 de cada 6 predoctorals; 1 de cada 6 resta PDI.</td>
+                  <td class="py-3.5 px-4 font-bold">Mínim 25% del total de membres del consell.</td>
+                  <td class="py-3.5 px-4">Tots els membres a TC en RLT + 1 de cada 6 de la resta.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TABLE 3: XIFRES ECONOMICOFINANCERES I LABORALS -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="px-6 py-4 bg-slate-900 text-white font-bold text-sm flex items-center justify-between">
+            <span>Taula 3: Llindars Financers, Jornada Docent i Ràtios de Personal (LOSU)</span>
+            <span class="text-xs text-indigo-300 font-normal">LOSU Arts. 55, 57, 64, 71, 75, 78, 79, 129</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm text-slate-700">
+              <thead class="bg-slate-100/75 border-b border-slate-200 text-xs font-bold text-slate-600 uppercase">
+                <tr>
+                  <th class="py-3.5 px-4">Concepte Jurídic</th>
+                  <th class="py-3.5 px-4">Límit / Percentatge Fixat per Llei</th>
+                  <th class="py-3.5 px-4">Comentari i Finalitat Oposició</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 font-medium">
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Despesa pública en educació universitària</td>
+                  <td class="py-3.5 px-4 font-bold text-indigo-600">Mínim de l'1% del PIB (Art. 55.2)</td>
+                  <td class="py-3.5 px-4">Objectiu compartit entre Estat, comunitats autònomes i universitats per a l'any 2030.</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Fons per a programes propis de recerca</td>
+                  <td class="py-3.5 px-4 font-bold text-indigo-600">Mínim del 5% del pressupost (Art. 57.7 i Art. 100.3)</td>
+                  <td class="py-3.5 px-4">Obligatori tant per a universitats públiques com privades.</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Topall de temporalitat del PDI</td>
+                  <td class="py-3.5 px-4 font-bold text-rose-600">Màxim 8% de la plantilla (Art. 64.3)</td>
+                  <td class="py-3.5 px-4">Reducció radical respecte al 40% de la LOU. No computen associats sanitaris ni ajudants doctors.</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Majoria de PDI funcionari</td>
+                  <td class="py-3.5 px-4 font-bold text-emerald-600">&gt; 50% en equivalències a temps complet (Art. 64.3)</td>
+                  <td class="py-3.5 px-4">El PDI funcionari ha de ser majoritari sobre el total de PDI de la universitat.</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Reserva de places per a investigadors R3 / I3</td>
+                  <td class="py-3.5 px-4 font-bold text-indigo-600">Mínim del 15% del total de places (Art. 71.1.c)</td>
+                  <td class="py-3.5 px-4">Reserva anual per a doctorats amb certificat R3 o Programa d'incentivació I3 en cossos docents i permanents.</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Jornada docent PDI funcionari a Temps Complet</td>
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Forquilla de 120 a 240 hores lectives / curs (Art. 75.2)</td>
+                  <td class="py-3.5 px-4">Modificable per càrrecs unipersonals, cures familiars o representació sindical.</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Professorat Ajudant Doctor</td>
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Màxim 6 anys de contracte (Art. 78) / Màx. 180h docència</td>
+                  <td class="py-3.5 px-4">No requereix acreditació prèvia. Curs de formació docent el primer any. Avaluació orientativa als 3 anys.</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Professorat Associat</td>
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Contracte indefinit a temps parcial / Màx. 120h docència</td>
+                  <td class="py-3.5 px-4">Especialistes amb activitat principal fora de l'acadèmia. No tenen funcions de coordinació ni gestió.</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Reserva de places en títols per discapacitat</td>
+                  <td class="py-3.5 px-4 font-bold text-indigo-600">Mínim del 5% de places (Art. 31.4)</td>
+                  <td class="py-3.5 px-4">Reserva obligatòria en graus, màsters i programes de doctorat oficials.</td>
+                </tr>
+                <tr class="hover:bg-slate-50">
+                  <td class="py-3.5 px-4 font-bold text-slate-900">Personal eventual de confiança (Estatut URV)</td>
+                  <td class="py-3.5 px-4 font-bold text-rose-600">Màxim 5% del total de PTGAS (Art. 129.3 URV)</td>
+                  <td class="py-3.5 px-4">Nomenat pel Rector/a. Condicions retributives comunicades al Consell Social de manera individualitzada.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="mt-auto border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500">
+    <p>Guia Sistemàtica per a Oposicions &bull; Síntesi literal i estructurada de la LOSU (Llei Orgànica 2/2023) i l'Estatut URV (Acord GOV/244/2025).</p>
+  </footer>
+
+  <!-- DATA OBJECT AND CLIENT ENGINE -->
+  <script>
+    // Exhaustive dataset for LOSU (102 pages) and URV (52 pages)
+    const losuData = [
+      {
+        id: "losu-preambul",
+        num: "Preàmbul & Context",
+        title: "Justificació de la reforma universitària i fites normatives històriques",
+        pages: "Pàg. 1 a 10",
+        ref: "Document de referència: 2043462.pdf - Pàg. 1 a 10",
+        summary: "Context històric, diagnosi de la desinversió i justificació de la derogació de la LOU (Llei orgànica 6/2001).",
+        details: [
+          {
+            dt: "Evolució històrica de la regulació universitària a l'Estat",
+            dd: "Dues fites bàsiques prèvies: la Llei orgànica 11/1983 (LRU), que va establir les bases democràtiques i l'autonomia universitària (Art. 27.10 CE), i la Llei orgànica 6/2001 (LOU), modificada per la Llei orgànica 4/2007, que va articular l'Espai Europeu d'Educació Superior (EEES)."
+          },
+          {
+            dt: "Diagnòstic de la crisi i motius de la LOSU",
+            dd: "Constatació d'una dècada de limitacions pressupostàries greus amb reducció dràstica de finançament públic (-20% superior a l'educació primària/secundària), envelliment de plantilles, quotes de temporalitat insostenibles superiors al 40% i precarització dels professors associats i interins."
+          },
+          {
+            dt: "Objectius transformadors",
+            dd: "Garantir un finançament públic mínim de l'1% del PIB per al 2030, reduir taxativament la temporalitat al 8%, establir una carrera acadèmica predictible de tres etapes (incorporació, consolidació i promoció) i consagrar el dret a la formació al llarg de la vida (microcredencials)."
+          }
+        ]
+      },
+      {
+        id: "losu-preliminar-t1",
+        num: "Títol Preliminar & Títol I",
+        title: "Objecte, Funcions del Sistema Universitari i Autonomia Universitària (Arts. 1 a 3)",
+        pages: "Pàg. 10 a 14",
+        ref: "Document de referència: 2043462.pdf - Pàg. 10 a 14",
+        summary: "Concepte legal d'universitat, funcions bàsiques i abast material del dret d'autonomia universitària.",
+        details: [
+          {
+            dt: "Article 1. Objecte i definició de Sistema Universitari",
+            dd: "Regula el conjunt d'universitats públiques i privades i els centres que en depenen. Concepte d'universitat: institucions amb funcions centrals de docència, recerca i transferència que ofereixen títols oficials de grau, màster i doctorat a la majoria de branques del saber."
+          },
+          {
+            dt: "Article 2. Funcions de la universitat",
+            dd: "Prestació del servei públic d'educació superior. Funcions: educació crítica, preparació professional, creació/transferència del coneixement, innovació, promoció de les llengües oficials, pensament crític i formació en valors democràtics i sostenibilitat (ODS)."
+          },
+          {
+            dt: "Article 3. Autonomia universitària i Llibertat de Càtedra",
+            dd: "Fonamentada a l'Art. 27.10 CE. Comprèn: línies estratègiques pròpies, redacció d'estatuts, elecció/remoció d'òrgans de govern, autonomia financera i pressupostària, elaboració de plans d'estudi, expedició de títols, establiment de Relacions de Llocs de Treball (RLT), selecció del personal i mediació de conflictes. Garanteix la llibertat de càtedra (docència, recerca i estudi) i obliga a la rendició de comptes i suficiència financera pública."
+          }
+        ]
+      },
+      {
+        id: "losu-t2",
+        num: "Títol II",
+        title: "Creació, Reconeixement i Qualitat del Sistema Universitari (Arts. 4 i 5)",
+        pages: "Pàg. 14 a 15",
+        ref: "Document de referència: 2043462.pdf - Pàg. 14 a 15",
+        summary: "Procediment legislatiu per fundar universitats, autorització autonòmica d'obertura i requisits essencials d'igualtat.",
+        details: [
+          {
+            dt: "Article 4. Creació d'universitats públiques i reconeixement de privades",
+            dd: "Es realitza per Llei de l'Assemblea Legislativa de la comunitat autònoma respectiva (amb informe preceptiu de la Conferència General de Política Universitària - CGPU). Si es tracta d'universitats de característiques especials (UNED), per Llei de les Corts Generals a proposta del Govern estatal. L'autorització per a l'inici d'activitats correspon a la comunitat autònoma."
+          },
+          {
+            dt: "Condicions prèvies imperatives de creació (Art. 4.3)",
+            dd: "Pla d'igualtat de gènere, mesures contra la bretxa salarial, accessibilitat i adaptacions universals per a persones amb discapacitat, i protocols contra la violència masclista i assetjament emparats per la Llei 3/2022 de convivència universitària."
+          },
+          {
+            dt: "Article 5. Agències d'Avaluació de la Qualitat",
+            dd: "La garantia de qualitat recau en l'ANECA i les agències autonòmiques inscrites al Registre Europeu EQAR (com AQU Catalunya). Tenen competències d'acreditació de professorat, titulacions i acreditació institucional. Les agències amb més de 50 treballadors han de tenir pla d'igualtat propi."
+          }
+        ]
+      },
+      {
+        id: "losu-t3",
+        num: "Títol III",
+        title: "Organització dels Ensenyaments i Títols Universitaris (Arts. 6 a 10)",
+        pages: "Pàg. 15 a 19",
+        ref: "Document de referència: 2043462.pdf - Pàg. 15 a 19",
+        summary: "Estructura dels tres cicles oficials (Grau, Màster, Doctorat), títols propis, inscripció al RUCT i formació al llarg de la vida.",
+        details: [
+          {
+            dt: "Article 6. La funció docent",
+            dd: "Dret i deure del professorat universitari amb llibertat de càtedra. Docència preferentment presencial, tot i que es preveu modalitat virtual i híbrida. Participació efectiva dels estudiants en l'avaluació de la docència."
+          },
+          {
+            dt: "Article 7 i 8. Títols oficials vs. Títols propis i inscripció al RUCT",
+            dd: "Els títols oficials gaudeixen de validesa a tot l'Estat i la inscripció al Registre d'Universitats, Centres i Títols (RUCT) té caràcter constitutiu. S'expedeixen en nom del Rei pel Rector/a. Procediment d'implantació: informe favorable de viabilitat de la comunitat autònoma, informe de verificació de la memòria per l'agència de qualitat, verificació pel Consell d'Universitats i autorització final per la comunitat autònoma, seguida d'acord de caràcter oficial del Consell de Ministres i publicació al BOE i diari oficial autonòmic."
+          },
+          {
+            dt: "Article 9. Estructura de cicles i modalitats innovadores",
+            dd: "Tres cicles oficials: Grau (formació bàsica/generalista), Màster universitari (formació avançada o especialitzada o iniciació a recerca) i Doctorat (competències de recerca amb tesi doctoral original). S'introdueixen modalitats formatives innovadores: menció dual universitat-empresa, itineraris oberts, dobles titulacions i menció de doctorat industrial."
+          },
+          {
+            dt: "Article 7.5 i 10. Microcredencials i convalidacions",
+            dd: "Regulació explícita de la formació al llarg de la vida mitjançant microcredencials, micromòduls i títols curts. L'Estat regula les condicions d'homologació, declaració d'equivalència i reconeixement de l'experiència professional i laboral."
+          }
+        ]
+      },
+      {
+        id: "losu-t4",
+        num: "Títol IV",
+        title: "Recerca, Transferència, Ciència Oberta i Ciència Ciutadana (Arts. 11 a 13)",
+        pages: "Pàg. 19 a 23",
+        ref: "Document de referència: 2043462.pdf - Pàg. 19 a 23",
+        summary: "El coneixement científic com a bé comú, repositoris institucionals obligatoris en accés obert i principis FAIR.",
+        details: [
+          {
+            dt: "Article 11. La recerca universitària",
+            dd: "Funció fonamental, dret i deure del PDI exercible amb intensitats variables al llarg de la carrera. Concepte avaluable per a retribucions i promoció. Es reconeix la interdisciplinarietat com a mèrit acadèmic."
+          },
+          {
+            dt: "Article 12. Mandat legal de Ciència Oberta (Open Science) i Ciència Ciutadana",
+            dd: "El coneixement científic es defineix formalment com un bé comú. Obligació legal: el PDI ha de dipositar una còpia de la versió final acceptada per a publicació i les dades de recerca en repositoris institucionals o temàtics d'accés obert de forma simultània a la data de publicació. Les dades primàries han de complir els principis FAIR (fàcils de trobar, accessibles, interoperables i reutilitzables). Les agències de qualitat avaluaran preceptivament l'accés obert."
+          },
+          {
+            dt: "Article 13. Foment de projectes d'R+D+I",
+            dd: "Paritat de gènere obligatòria en comissions de selecció de projectes i mesures per afavorir investigadores principals dones i lideratge de joves investigadors."
+          }
+        ]
+      },
+      {
+        id: "losu-t5",
+        num: "Títol V",
+        title: "Cooperació, Coordinació i Participació en el Sistema Universitari (Arts. 14 a 17)",
+        pages: "Pàg. 23 a 27",
+        ref: "Document de referència: 2043462.pdf - Pàg. 23 a 27",
+        summary: "Òrgans estatals de governança i coordinació universitària: CGPU, Consell d'Universitats i CEUNE.",
+        details: [
+          {
+            dt: "Article 15. Conferència General de Política Universitària (CGPU)",
+            dd: "Òrgan de coordinació entre les administracions públiques. Presidit pel ministre/a competent en universitats, integrat pels consellers/es autonòmics competents en educació universitària. Funcions: informe preceptiu de creació d'universitats, aprovació anual de l'oferta de places i programació general."
+          },
+          {
+            dt: "Article 16. Consell d'Universitats",
+            dd: "Òrgan de coordinació acadèmica del sistema. Presidit pel ministre/a, integrat per tots els rectors/es de les universitats espanyoles i 5 vocals designats (incloent representants de Consells Socials, CEUNE i sindicats més representatius). Verifica plans d'estudis i coordina criteris d'impartició docent."
+          },
+          {
+            dt: "Article 17. Consell d'Estudiants Universitari de l'Estat (CEUNE)",
+            dd: "Òrgan col·legiat superior de representació, consulta i participació de l'estudiantat davant el ministeri. Presidència del ministre/a i vicepresidència segona exercida per l'estudiantat. Composició paritària (mínim 40% de cadascun dels sexes)."
+          }
+        ]
+      },
+      {
+        id: "losu-t6-t7",
+        num: "Títols VI & VII",
+        title: "Societat, Cultura i Internacionalització (Arts. 18 a 30)",
+        pages: "Pàg. 27 a 32",
+        ref: "Document de referència: 2043462.pdf - Pàg. 27 a 32",
+        summary: "Campus climàticament sostenibles, protecció patrimonial, aliances europees i doctorats en cotutela.",
+        details: [
+          {
+            dt: "Articles 18 a 22. Cohesió social, diversitat lingüística i patrimoni",
+            dd: "Compromís contra el despoblament i adaptació al canvi climàtic als campus. Protecció i finançament singular de la cooficialitat de llengües pròpies. Deure de digitalització dels fons documentals i bibliotecaris."
+          },
+          {
+            dt: "Articles 23 a 30. Internacionalització del sistema",
+            dd: "Integració plena a l'Espai Europeu d'Educació Superior i potenciació de l'Espai Iberoamericà del Coneixement. Participació en xarxes interuniversitàries europees (aliances d'universitats europees), promoció de dobles titulacions internacionals, cotuteles de tesi doctoral i simplificació d'homologacions i visats migratoris per captar talent."
+          }
+        ]
+      },
+      {
+        id: "losu-t8",
+        num: "Títol VIII",
+        title: "L'Estatut de l'Estudiantat en el Sistema Universitari (Arts. 31 a 37)",
+        pages: "Pàg. 32 a 38",
+        ref: "Document de referència: 2043462.pdf - Pàg. 32 a 38",
+        summary: "Estatut dels estudiants elevat a rang de llei orgànica: quotes de discapacitat, beques com a dret subjectiu i atur acadèmic.",
+        details: [
+          {
+            dt: "Article 31. Dret d'accés i reserva per a discapacitat",
+            dd: "Garanteix la igualtat d'accés segons mèrit i capacitat. Reserva legal obligatòria d'almenys el 5% de les places en títols universitaris oficials de grau, màster i doctorat per a persones amb discapacitat."
+          },
+          {
+            dt: "Article 32. Beques com a dret subjectiu",
+            dd: "L'accés a beques i ajuts es configura com un dret subjectiu basat fonamentalment en criteris socioeconòmics. Bonificació del 100% de preus públics de matrícula per a estudiants amb discapacitat i víctimes de violència de gènere."
+          },
+          {
+            dt: "Article 33. Drets acadèmics i reconeixement de l'Atur Acadèmic",
+            dd: "Dret a conèixer la llengua d'impartició abans de la matrícula. Consagració formal de l'atur acadèmic (vaga estudiantil) com a dret de l'estudiantat, exercit per l'òrgan de representació estudiantil, que pot ser total o parcial i exigeix garantir el dret a l'educació dels estudiants que vulguin assistir."
+          },
+          {
+            dt: "Articles 34 a 37. Participació i no discriminació",
+            dd: "Dret de representació activa en tots els òrgans universitaris i obligació de crear un Consell d'Estudiants a cada universitat. Prohibició taxativa de discriminació per motius de gènere, origen, orientació sexual, idioma o condició socioeconòmica."
+          }
+        ]
+      },
+      {
+        id: "losu-t9-c1-c2",
+        num: "Títol IX (Capítols I i II)",
+        title: "Règim Jurídic, Estructura i Governança de les Universitats Públiques (Arts. 38 a 52)",
+        pages: "Pàg. 38 a 51",
+        ref: "Document de referència: 2043462.pdf - Pàg. 38 a 51",
+        summary: "Estructura institucional bàsica, facultats/escoles, unitats bàsiques obligatòries, quòrums de governança i mandats únics de 6 anys.",
+        details: [
+          {
+            dt: "Article 38. Règim jurídic i aprovació d'Estatuts",
+            dd: "Els estatuts són elaborats per la universitat i aprovats per la comunitat autònoma després d'un control de legalitat en un termini màxim de 4 mesos. Posen fi a la via administrativa les resolucions del Rector/a i els acords del Consell Social, Consell de Govern i Claustre."
+          },
+          {
+            dt: "Articles 40 a 42. Centres i estructures universitàries",
+            dd: "Campus, facultats, escoles, departaments, instituts universitaris de recerca i escoles de doctorat. La creació, modificació o supressió de facultats i escoles l'acorda la comunitat autònoma a proposta del Consell de Govern. Departaments i instituts es creen per la mateixa universitat. L'adscripció de centres docents requereix conveni i aprovació autonòmica."
+          },
+          {
+            dt: "Article 43. Unitats bàsiques imperatives",
+            dd: "Tota universitat pública ha de comptar obligatòriament amb: Unitat d'Igualtat, Unitat de Diversitat (amb servei d'atenció a la discapacitat), Defensoria Universitària (autònoma i independent), Inspecció de Serveis (incoació d'expedients disciplinaris dirigida per PTGAS) i serveis d'assessorament psicològic i orientació professional."
+          },
+          {
+            dt: "Article 44. Regles generals de governança i durada de mandats",
+            dd: "El mandat dels titulars d'òrgans unipersonals electes és taxativament de 6 anys improrrogables i no renovables. Requisit de dedicació a temps complet. Incompatibilitat d'exercir dos càrrecs de govern alhora. Paritat de gènere en la composició d'òrgans."
+          },
+          {
+            dt: "Article 45. Claustre Universitari",
+            dd: "Màxim òrgan de representació. Presidit pel Rector/a. Funcions: aprovar/reformar estatuts, elegir representants i convocar eleccions extraordinàries a Rector. Composició: el PDI funcionari i PDI permanent laboral ha de tenir el 51% de representació. L'estudiantat ha de tenir com a mínim el 25%."
+          },
+          {
+            dt: "Article 46. Consell de Govern",
+            dd: "Màxim òrgan de govern ordinari. Membres nats: Rector/a, Secretari/ària General i Gerent/a. Composició: majoria de PDI funcionari i laboral permanent; presència garantida de figures no permanents; representació mínima de l'estudiantat del 10%; representació mínima del PTGAS del 10%; i 1/3 del total de membres designats directament pel Rector/a (inclosos nats)."
+          },
+          {
+            dt: "Article 47. Consell Social",
+            dd: "Òrgan de participació de la societat civil i teixit productiu. Funcions: aprovar el pressupost anual i els comptes anuals, aprovar el pla pluriennal de finançament i supervisar l'activitat econòmica. Membres universitaris nats: Rector/a, Gerent/a i Secretari/ària General, a més d'1 representant de PDI, 1 de PTGAS i 1 d'estudiants (amb veu i vot)."
+          },
+          {
+            dt: "Articles 50 i 51. Elecció del Rector o de la Rectora",
+            dd: "Candidats: han de ser PDI permanent doctor a temps complet i reunir mèrits de recerca, docència i experiència de gestió universitària unipersonal. Elegit per sufragi universal directe i ponderat. La ponderació del vot del PDI dels cossos docents funcionaris i permanent laboral no pot ser inferior al 51%. Mandat únic de 6 anys. Segona volta entre els dos més votats si ningú obté la majoria absoluta a la primera."
+          }
+        ]
+      },
+      {
+        id: "losu-t9-c3",
+        num: "Títol IX (Capítol III)",
+        title: "Règim Econòmic i Financer de les Universitats Públiques (Arts. 53 a 63)",
+        pages: "Pàg. 51 a 60",
+        ref: "Document de referència: 2043462.pdf - Pàg. 51 a 60",
+        summary: "Autonomia financera, objectiu de l'1% del PIB, estructura pressupostària, 5% mínim per a recerca i contractes Art. 60.",
+        details: [
+          {
+            dt: "Article 55. Suficiència financera i objectiu de l'1% del PIB",
+            dd: "Les administracions públiques han de garantir la suficiència financera. L'Estat, les CCAA i les universitats comparteixen l'objectiu de destinar com a mínim l'1% del PIB a l'educació universitària pública abans de l'any 2030."
+          },
+          {
+            dt: "Article 56. Tres eixos del model de finançament pluriennal",
+            dd: "1) Finançament estructural basal (despeses de personal, inversions ordinàries, plans d'estabilització); 2) Finançament estructural per necessitats singulars (insularitat, dispersió rural, singularitat lingüística, patrimoni històric); 3) Finançament per objectius (vinculat a recerca oberta, internacionalització, ocupabilitat i paritat)."
+          },
+          {
+            dt: "Article 57. Pressupost universitari i reserva del 5% per a recerca",
+            dd: "El pressupost és públic, únic i equilibrat. Obligació taxativa: dedicar un percentatge del pressupost no inferior al 5% a programes propis de recerca (Art. 57.7). Els costos de personal docent i de PTGAS han de ser autoritzats per la comunitat autònoma. En cas de liquidació amb romanent de tresoreria negatiu, el Consell Social ha d'aprovar una reducció de despeses equivalent al dèficit."
+          },
+          {
+            dt: "Article 60. Contractes de transferència i col·laboració",
+            dd: "Els grups de recerca, departaments, instituts i professors poden subscriure contractes amb persones físiques o entitats públiques/privades per a treballs científics, tècnics o artístics i formació continuada."
+          },
+          {
+            dt: "Article 61. Empreses de base tecnològica (Spin-offs)",
+            dd: "Les universitats poden crear empreses basades en el coneixement. El PDI permanent i PTGAS pot sol·licitar excedència temporal per incorporar-s'hi fins a un màxim de 5 anys amb reserva de lloc de treball i còmput d'antiguitat."
+          }
+        ]
+      },
+      {
+        id: "losu-t9-c4",
+        num: "Títol IX (Capítol IV)",
+        title: "Personal Docent i Investigador (PDI) de les Universitats Públiques (Arts. 64 a 88)",
+        pages: "Pàg. 60 a 75",
+        ref: "Document de referència: 2043462.pdf - Pàg. 60 a 75",
+        summary: "Topall del 8% de temporalitat, cossos docents funcionaris, forquilla docent 120-240h i règim del professorat laboral (Ajudant Doctor, Associat, Permanent Laboral).",
+        details: [
+          {
+            dt: "Article 64. Estructura de plantilles i límit taxatiu de temporalitat",
+            dd: "El professorat funcionari ha de ser majoritari sobre el total de PDI en equivalències a temps complet. El PDI laboral temporal no pot superar el 8% de la plantilla docent (reduït des de l'antic 40% de la LOU). En aquest 8% no es computen els associats sanitaris ni els ajudants doctors."
+          },
+          {
+            dt: "Articles 68 i 69. Cossos Docents Universitaris Funcionaris",
+            dd: "Dos únics cossos: Catedràtics/ques d'Universitat (CU) i Professors/es Titulars d'Universitat (TU). Exigeix títol de doctor i acreditació prèvia d'ANECA (o conveni amb agència autonòmica). Requisit obligatori per acreditar-se: haver realitzat estades de docència o recerca en universitats o centres diferents d'aquell on es va defensar la tesi."
+          },
+          {
+            dt: "Article 71. Concursos d'accés a places funcionàries i quota R3/I3",
+            dd: "La majoria dels membres de les comissions de selecció han de ser externs a la universitat convocant i elegits per sorteig públic. Reserva obligatòria del 15% de places per a personal doctor amb certificat R3 o avaluació del programa I3."
+          },
+          {
+            dt: "Article 75. Règim de dedicació del PDI funcionari",
+            dd: "Dedicació preferent a temps complet. Càrrega docent obligatòria: forquilla d'un màxim de 240 hores i un mínim de 120 hores lectives per curs acadèmic."
+          },
+          {
+            dt: "Articles 78 a 84. Figures contractuals laborals de la LOSU",
+            dd: "1) Professor/a Ajudant Doctor: contracte temporal de 6 anys a temps complet (8 anys per discapacitat). No exigeix acreditació. Càrrega docent màxima de 180h/curs. Curs docent el 1r any i avaluació als 3 anys; 2) Professor/a Associat: contracte indefinit a temps parcial (màx. 120h docents), reservat a professionals en actiu fora de la universitat; 3) Professor/a Substitut: per cobrir suspensions o reserves de lloc de treball; 4) Professor/a Permanent Laboral: contracte fix i indefinit a temps complet amb drets equiparats als funcionaris, requereix acreditació autonòmica o ANECA; 5) Altres figures: Visiting Professor (màx. 2 anys) i Distinguished Professor."
+          }
+        ]
+      },
+      {
+        id: "losu-t9-c5",
+        num: "Títol IX (Capítol V)",
+        title: "Personal Tècnic, de Gestió i d'Administració i Serveis (PTGAS) (Arts. 89 a 94)",
+        pages: "Pàg. 75 a 79",
+        ref: "Document de referència: 2043462.pdf - Pàg. 75 a 79",
+        summary: "Règim estatutari del PTGAS funcionari i laboral: carrera professional horitzontal, selecció, provisió per concurs i mobilitat.",
+        details: [
+          {
+            dt: "Article 89. Composició i règim jurídic del PTGAS",
+            dd: "Format per personal funcionari i personal laboral. El PTGAS funcionari es regeix per la LOSU, el TREBEP (RDL 5/2015), els pactes laborals i els estatuts universitaris. El laboral pel conveni col·lectiu i Estatut dels Treballadors. Dret a participar en la governança universitària."
+          },
+          {
+            dt: "Article 90. Carrera professional horitzontal",
+            dd: "Les universitats han d'establir escales segons el grup de titulació. Reconeixement formal de la carrera professional horitzontal: progressió de grau, categoria o nivell retributiu sense necessitat de canviar de lloc de treball, basada en trajectòria, qualitat, formació acreditada i avaluació de l'exercici."
+          },
+          {
+            dt: "Articles 91 a 94. Selecció, Provisió i Retribucions",
+            dd: "Ingrés mitjançant oposició o concurs-oposició d'acord amb els principis d'igualtat, mèrit i capacitat, amb publicació obligatòria al BOE i diari oficial de la CCAA. Provisió ordinària per concurs de mèrits (la lliure designació és excepcional). Concessió d'incentius individuals per transferència, gestió i serveis especialitzats."
+          }
+        ]
+      },
+      {
+        id: "losu-t10-df",
+        num: "Títol X & Disposicions",
+        title: "Universitats Privades, Disposicions Addicionals, Transitòries i Derogatòries",
+        pages: "Pàg. 79 a 102",
+        ref: "Document de referència: 2043462.pdf - Pàg. 79 a 102",
+        summary: "Requisits d'universitats privades, centres adscrits, integració de cossos docents d'escola universitària i processos d'estabilització temporal.",
+        details: [
+          {
+            dt: "Articles 95 a 100. Universitats privades",
+            dd: "Objecte social exclusiu d'educació superior i recerca. Requisit de doctorat en la mateixa proporció que a les públiques i com a mínim el 60% del professorat doctor ha de disposar d'avaluació positiva d'ANECA o agències autonòmiques. Reserva del 5% del pressupost per a recerca pròpia."
+          },
+          {
+            dt: "Disposicions Addicionals clau",
+            dd: "DA 1a: UNED (àmbit estatal, pressupostos als PGE); DA 2a: UIMP; DA 4a: Universitats de l'Església Catòlica; DA 7a: Col·legis majors (només promoguts per entitats sense afany de lucre; prohibició expressa d'adscriure a universitats públiques col·legis que segreguin per sexe); DA 11a: Integració de Catedràtics i Titulars d'Escola Universitària (TEU) al cos de Professors Titulars d'Universitat (TU) si obtenen el doctorat, sense requisit de mobilitat."
+          },
+          {
+            dt: "Disposicions Transitòries i Estabilització (Llei 20/2021)",
+            dd: "DT 1a: Termini de 3 anys per aprovar nous Estatuts i constituir Claustre/Consell de Govern; DT 5a: Integració voluntària dels professors contractats doctors en la categoria de professors permanents laborals; DT 7a i DT 9a bis: Processos d'estabilització de places de professors associats i de PTGAS emparats per la Llei 20/2021 (termini ampliat fins a juny de 2028 per la Llei 1/2024); DT 12a: Adaptació de la jornada docent del PDI."
+          },
+          {
+            dt: "Disposició Derogatòria Única",
+            dd: "Queden derogades expressament: la Llei orgànica 6/2001 (LOU), la Llei orgànica 4/2007 i el Reial decret llei 14/2012 de mesures de racionalització de la despesa universitària."
+          }
+        ]
+      }
+    ];
+
+    const urvData = [
+      {
+        id: "urv-preambul-preliminar",
+        num: "Preàmbul & Títol Preliminar",
+        title: "Orígens Històrics, Identitat, Seu, Llengua i Competències (Arts. 1 a 9)",
+        pages: "Pàg. 1 a 5",
+        ref: "Document de referència: DOGC9526_Estatut_URV_2025 (1).pdf - Pàg. 1 a 5",
+        summary: "Fundació de l'Estudi General el 1572, Llei 36/1991, el lema 'Sapientiae Liberi Libertati Sapientes', seu a Tarragona i el català com a llengua pròpia.",
+        details: [
+          {
+            dt: "Preàmbul i antecedents històrics",
+            dd: "L'origen es remunta a l'any 1572 amb l'Estudi General de Tarragona, instituït pel cardenal Gaspar Cervantes de Gaeta (suprimit el 1717 pel Decret de Nova Planta). Represa universitària el 1971 amb delegacions de la UB. Creació oficial de la Universitat Rovira i Virgili per Llei 36/1991, de 30 de desembre, del Parlament de Catalunya. Nom dedicat a Antoni Rovira i Virgili, president del Parlament a l'exili. L'escut incorpora el lema 'Sapientiae Liberi Libertati Sapientes' (Lliures per a la saviesa, savis per a la llibertat)."
+          },
+          {
+            dt: "Article 1 i 2. Naturalesa i règim jurídic",
+            dd: "Institució de dret públic amb personalitat jurídica i patrimoni propis que actua en règim d'autonomia. Exercici de potestats pròpies del sector públic institucional (organitzativa i normativa)."
+          },
+          {
+            dt: "Article 4. Missió territorial",
+            dd: "Motor socioeconòmic, cultural i científic del Camp de Tarragona, les Terres de l'Ebre i el Penedès."
+          },
+          {
+            dt: "Article 6 i 7. Seu i signes distintius",
+            dd: "La seu institucional és a la ciutat de Tarragona. Signes distintius: nom, sigles URV, escut històric renaixentista i emblema gràfic creat pel pintor Antoni Tàpies."
+          },
+          {
+            dt: "Article 8. Règim lingüístic",
+            dd: "El català és la llengua pròpia de la URV i la d'ús normal de les seves activitats. Són llengües oficials el català i el castellà. Deure de coneixement suficient per al personal acadèmic i PTGAS. Foment del coneixement de terceres llengües i llenguatge inclusiu."
+          }
+        ]
+      },
+      {
+        id: "urv-t1",
+        num: "Títol I",
+        title: "Estructures de la Universitat i Entitats Instrumentals (Arts. 10 a 21)",
+        pages: "Pàg. 5 a 10",
+        ref: "Document de referència: DOGC9526_Estatut_URV_2025 (1).pdf - Pàg. 5 a 10",
+        summary: "Tipologia d'estructures (Facultats, Escoles, Departaments, Instituts), Campus, ICE i la Fundació URV com a mitjà propi.",
+        details: [
+          {
+            dt: "Article 10. Tipologia d'estructures acadèmiques",
+            dd: "Facultats i escoles, Escola o escoles de doctorat, Departaments i Instituts universitaris de recerca propis."
+          },
+          {
+            dt: "Article 11. Facultats i Escoles",
+            dd: "Centres responsables d'organitzar els ensenyaments i processos per a títols oficials de grau i màster. Funcions: vetllar per la docència, assignar espais i recursos, coordinar avaluacions de qualitat i retre comptes periòdicament al Consell de Govern."
+          },
+          {
+            dt: "Article 12. Escola de Doctorat",
+            dd: "Organitza i gestiona tots els estudis i programes de doctorat de la URV. Garanteix la internacionalització, interdisciplinarietat i col·laboració amb el teixit ocupador."
+          },
+          {
+            dt: "Article 13. Departaments",
+            dd: "Estructura bàsica d'organització del personal acadèmic per àmbits de coneixement afins. Funcions: assignar docència al professorat, coordinar continguts d'assignatures, proposar places a Consell de Govern i gestionar recursos materials."
+          },
+          {
+            dt: "Articles 15 a 18. Campus, ICE i Centres Adscrits",
+            dd: "El Campus és l'espai físic compartit de coordinació territorial. L'Institut de Ciències de l'Educació (ICE) s'encarrega de la formació pedagògica i innovació docent del professorat. Possibilitat d'adscriure centres d'educació superior (representats per delegat del Rector/a)."
+          },
+          {
+            dt: "Article 19 i 20. Entitats instrumentals i Fundació URV",
+            dd: "La Fundació URV té caràcter d'entitat sense afany de lucre i és reconeguda formalment com a 'mitjà propi' de la Universitat (Llei de contractes del sector públic). Gestiona formació continuada, transferència de tecnologia i innovació. El Rector/a en presideix el Patronat."
+          }
+        ]
+      },
+      {
+        id: "urv-t2-c1-c2",
+        num: "Títol II (Capítols I i II)",
+        title: "Òrgans de Govern Generals: Claustre, Consell Social i Consell de Govern (Arts. 22 a 37)",
+        pages: "Pàg. 10 a 16",
+        ref: "Document de referència: DOGC9526_Estatut_URV_2025 (1).pdf - Pàg. 10 a 16",
+        summary: "Tipologia d'òrgans, composició numèrica exacta del Claustre (203 membres), Consell Social i competències del Consell de Govern.",
+        details: [
+          {
+            dt: "Article 23 a 26. Principis de governança i naturalesa dels actes",
+            dd: "Òrgans col·legiats adopten 'acords'; òrgans unipersonals dicten 'resolucions'. Les resolucions del Rector/a i els acords de Claustre, Consell de Govern i Consell Social exhaureixen la via administrativa i són impugnables directament davant la jurisdicció contenciosa administrativa."
+          },
+          {
+            dt: "Articles 28 a 31. Claustre Universitari de la URV",
+            dd: "Màxim òrgan de representació. Presidit pel Rector/a. Es reuneix en sessió ordinària almenys dues vegades l'any en període lectiu. Composició: Rector/a, Secretari/ària General, Gerent/a i fins a 200 membres elegits (total màxim 203). Distribució: 124 PDI (degans, directors de dept., de doctorat, d'instituts i representants electes de dept., amb majoria absoluta permanent); 52 estudiants (49 grau/màster repartits per centres + 3 doctorat); 24 PTGAS (proporcional funcionaris/laborals). Mandat de 6 anys, excepte estudiants que és de 2 anys."
+          },
+          {
+            dt: "Article 33 i 34. Consell Social",
+            dd: "Òrgan de participació de la societat civil. Elabora, aprova i avalua un pla triennal d'actuacions. Aprova pressupostos, comptes anuals i taxes/preus públics. Els representants del Consell de Govern al Consell Social es renoven cada 4 anys (estudiant cada 2 anys)."
+          },
+          {
+            dt: "Articles 35 a 37. Consell de Govern de la URV",
+            dd: "Màxim òrgan de govern ordinari. Es reuneix almenys un cop al trimestre. Membres nats: Rector/a, Secretari/ària General i Gerent/a. Composició: vicerectors i membres designats pel Rector/a fins a completar 1/3 (inclou tots els degans i directors d'escola); tots els directors de departament; 24 membres triats pel Claustre (5 PDI permanent -1 per agrupació de la DA 6a-, 3 PDI no permanent/associats, 8 estudiants -1 doctorand- i 8 PTGAS); i 3 membres no universitaris del Consell Social."
+          }
+        ]
+      },
+      {
+        id: "urv-t2-c3-c4-c5",
+        num: "Títol II (Capítols III, IV i V)",
+        title: "Òrgans Col·legiats Particulars i Òrgans Unipersonals (Arts. 38 a 65)",
+        pages: "Pàg. 16 a 26",
+        ref: "Document de referència: DOGC9526_Estatut_URV_2025 (1).pdf - Pàg. 16 a 26",
+        summary: "Composició exacta del Consell de Facultat (62%-26%-12%), Consell de Dept., requisits del Rector/a (3 sexennis/3 quinquennis) i càrrecs unipersonals.",
+        details: [
+          {
+            dt: "Article 38. Consell de Facultat o Escola",
+            dd: "Òrgan col·legiat de govern del centre. Composició ponderada: 62% PDI vinculat (majoria permanent, inclou membres nats i directors de departament amb docència majoritària); 26% estudiants elegits per ensenyaments; 12% PTGAS adscrit al centre."
+          },
+          {
+            dt: "Article 41. Consell de Departament",
+            dd: "Compost per: Director/a i secretari/ària; tot el PDI permanent adscrit; mínim 1 de cada 6 doctors temporals a TC; mínim 1 de cada 6 investigadors predoctorals; mínim 1 de cada 6 de la resta de PDI; representació d'estudiants no inferior al 25% del total del consell; i PTGAS a temps complet de l'RLT + 1 de cada 6 de la resta."
+          },
+          {
+            dt: "Articles 45 a 47. El Rector o la Rectora de la URV",
+            dd: "Màxima autoritat acadèmica i de representació. Mandat de 6 anys improrrogables i no renovables. Requisits específics URV (Art. 46.1): PDI permanent doctor a temps complet en actiu amb com a mínim 3 trams de recerca (sexennis), 3 trams docents (quinquennis) i 3r tram de gestió. Ponderació exacta de vot per elecció: PDI funcionari i laboral permanent: 0,51 (51%); Resta personal acadèmic: 0,12 (12%); Estudiantat: 0,20 (20%); PTGAS: 0,17 (17%)."
+          },
+          {
+            dt: "Articles 50 a 52. Vicerectors, Secretari/ària General i Gerent/a",
+            dd: "Els vicerectors han de ser PDI funcionari o laboral permanent. El secretari/ària general és responsable de la fe pública i presideix la Comissió Electoral. El gerent/a gestiona els serveis administratius i recursos materials/econòmics a dedicació a temps complet (no pot fer docència ni recerca)."
+          },
+          {
+            dt: "Articles 53 a 65. Òrgans unipersonals de centre i departament",
+            dd: "Degans i directors d'escola: elegits per sufragi universal ponderat dels membres de la facultat/escola amb els mateixos coeficients que el Rector (mandat de 6 anys). Directors de departament: elegits pel consell de dept. per 6 anys. Directors d'institut: seleccionats per comissió pública per 6 anys (renovables per 6 més)."
+          }
+        ]
+      },
+      {
+        id: "urv-t2-c6-c7",
+        num: "Títol II (Capítols VI i VII)",
+        title: "Processos Electorals, Comissions Estatutàries i d'Assessorament (Arts. 66 a 79)",
+        pages: "Pàg. 26 a 29",
+        ref: "Document de referència: DOGC9526_Estatut_URV_2025 (1).pdf - Pàg. 26 a 29",
+        summary: "Sufragi indelegable, Comissió Electoral, moció de censura i el catàleg tancat de les 6 comissions estatutàries.",
+        details: [
+          {
+            dt: "Articles 66 a 71. Règim electoral i remoció",
+            dd: "Vot personal i indelegable. Les eleccions d'estudiants han de ser en període lectiu i fora d'exàmens. Validació de confiança (majoria simple) quan es renovi més del 51% de l'òrgan col·legiat. Moció de censura per remoure càrrecs escollits per l'òrgan."
+          },
+          {
+            dt: "Article 73. Les 6 Comissions Estatutàries obligatòries",
+            dd: "Òrgans consultius que assessoren sobre àmbits estratègics, dependents del Claustre (reunió mínim 2 cops l'any i retiment de comptes anual al Claustre): 1) Comissió d'Acció Social i Solidària (Art. 74); 2) Comissió d'Ètica (Art. 75, interpreta i difon el Codi Ètic); 3) Comissió d'Igualtat de Gènere (Art. 76); 4) Comissió de Política Ambiental (Art. 77, sostenibilitat als campus); 5) Comissió de Política Lingüística (Art. 78, normalització del català); 6) Comissió de Qualitat Institucional (Art. 79)."
+          }
+        ]
+      },
+      {
+        id: "urv-t3",
+        num: "Títol III",
+        title: "La Sindicatura de Greuges de la URV (Arts. 80 a 83)",
+        pages: "Pàg. 29 a 30",
+        ref: "Document de referència: DOGC9526_Estatut_URV_2025 (1).pdf - Pàg. 29 a 30",
+        summary: "Defensoria institucional autònoma: requisits d'elecció (3/5 de presents), 5 anys de mandat i recomanacions no vinculants.",
+        details: [
+          {
+            dt: "Definició i independència (Arts. 80 i 81)",
+            dd: "Vetlla pels drets i les llibertats de tota la comunitat universitària davant els òrgans i serveis de la URV. Actua d'ofici o a petició de part. Les seves recomanacions són raonades però NO tenen caràcter vinculant. Té lliure accés a expedients interns. No pot intervenir en assumptes amb causa judicial oberta."
+          },
+          {
+            dt: "Procediment d'elecció i mandat (Art. 83)",
+            dd: "Elegit pel Claustre a proposta del Rector/a entre persones de reconegut prestigi EXTERNES a la comunitat universitària. Quòrum d'elecció: majoria qualificada de les 3/5 parts dels membres del Claustre presents. Mandat de 5 anys, sense possibilitat de renovació consecutiva. Presenta informe anual davant el Claustre i el Consell Social."
+          }
+        ]
+      },
+      {
+        id: "urv-t4",
+        num: "Títol IV",
+        title: "Activitat de la Universitat: Docència, Recerca i Transferència (Arts. 84 a 100)",
+        pages: "Pàg. 30 a 34",
+        ref: "Document de referència: DOGC9526_Estatut_URV_2025 (1).pdf - Pàg. 30 a 34",
+        summary: "Modalitats docents, títols propis, grups d'investigació, prohibició de recerca armamentista i contractes de transferència.",
+        details: [
+          {
+            dt: "Docència i titulacions (Arts. 85 a 92)",
+            dd: "Ensenyaments presencials, virtuals o híbrids. Els títols propis no poden induir a confusió amb els oficials i la seva direcció acadèmica l'assumeix PDI de la URV amb vistiplau del departament. Títol de Doctor Honoris Causa aprovat per Consell de Govern."
+          },
+          {
+            dt: "Grups de recerca i prohibició expressa (Arts. 93 a 95)",
+            dd: "La recerca ha de respectar el Codi Ètic. Principi fonamental: l'Art. 95.3 prohibeix taxativament qualsevol activitat de recerca amb finalitats armamentistes a la URV."
+          },
+          {
+            dt: "Propietat intel·lectual i contractes Art. 60 LOSU (Arts. 96 a 100)",
+            dd: "L'autoria de les obres és del personal, però la titularitat de les invencions i patents correspon a la URV (amb dret de participació en beneficis). Cànon fix de costos indirectes retingut per la URV en contractes de transferència aprovat pel Consell Social a proposta del Consell de Govern. Creació de Càtedres d'empresa per acord de Consell de Govern."
+          }
+        ]
+      },
+      {
+        id: "urv-t5",
+        num: "Títol V",
+        title: "Comunitat Universitària: Estudiants, PDI i PTGAS (Arts. 101 a 138)",
+        pages: "Pàg. 34 a 43",
+        ref: "Document de referència: DOGC9526_Estatut_URV_2025 (1).pdf - Pàg. 34 a 43",
+        summary: "Estatut dels tres col·lectius: Consell d'Estudiants, drets i deures del PDI, dedicació, any sabàtic, i selecció i carrera del PTGAS.",
+        details: [
+          {
+            dt: "Estudiants (Arts. 105 a 111)",
+            dd: "Totes les persones matriculades en grau, màster i doctorat. Drets a la propietat intel·lectual dels seus treballs docents. Representació articulada mitjançant: delegats de curs, consell d'estudiants de centre i el Consell d'Estudiants de la Universitat."
+          },
+          {
+            dt: "Personal Acadèmic (Arts. 112 a 128)",
+            dd: "Comprèn PDI, personal investigador i personal investigador predoctoral en formació. PDI permanent (catedràtics CU, titulars TU, catedràtics contractats i agregats) té la responsabilitat principal de la docència i plena capacitat investigadora. Any sabàtic (Art. 126) reconegut per a PDI permanent a temps complet segons normativa."
+          },
+          {
+            dt: "PTGAS a la URV (Arts. 129 a 138)",
+            dd: "Format per funcionaris i personal laboral. Caràcter general funcionarial dels llocs de treball. Topall d'eventuals: el personal eventual de confiança o assessorament no pot representar més del 5% del PTGAS (Art. 129.3). El Consell Social aprova el complement específic i el complement de productivitat a proposta de Consell de Govern. Selecció per convocatòria pública i provisió per concurs (lliure designació excepcional)."
+          }
+        ]
+      },
+      {
+        id: "urv-t6-t7",
+        num: "Títols VI & VII",
+        title: "Règim Econòmic, Patrimoni, Contractació i Reforma Estatutària (Arts. 139 a 155)",
+        pages: "Pàg. 43 a 47",
+        ref: "Document de referència: DOGC9526_Estatut_URV_2025 (1).pdf - Pàg. 43 a 47",
+        summary: "El pressupost anual de la URV, comptabilitat analítica, actes de disposició de béns, endeutament i procediment de reforma de l'Estatut.",
+        details: [
+          {
+            dt: "Pressupost anual i comptabilitat (Arts. 139 a 147)",
+            dd: "Públic, únic i equilibrat corresponent a l'any natural. Elaborat per Gerència, proposat pel Consell de Govern i aprovat pel Consell Social. Si no s'aprova abans de l'1 de gener, queda automàticament prorrogat el de l'any anterior. Comptabilitat pressupostària, patrimonial i analítica. Auditoria externa preceptiva adjunta als comptes anuals i sistema propi d'auditoria interna."
+          },
+          {
+            dt: "Patrimoni i Contractació (Arts. 148 a 153)",
+            dd: "Òrgan de contractació: Rector/a. Per a disposició de béns immobles cal acord del Consell de Govern i aprovació del Consell Social. Per a contractes d'inversions de més d'1 any que comprometin fons futurs cal acord del Consell Social."
+          },
+          {
+            dt: "Procediment de Reforma de l'Estatut (Arts. 154 i 155)",
+            dd: "Iniciativa de reforma: correspon al Rector/a, al Consell de Govern (acord per majoria absoluta) o a 1/4 part dels membres claustrals. Text enviat almenys 1 mes abans al Claustre. Aprovació ordinària: majoria absoluta del Claustre. Excepció: si és adaptació a lleis promulgades posteriorment, n'hi ha prou amb majoria simple dels membres claustrals presents. Prohibició temporal: no es poden presentar reformes dins els últims 3 mesos de mandat claustral."
+          }
+        ]
+      },
+      {
+        id: "urv-da-dt",
+        num: "Disposicions Addicionals & Transitòries",
+        title: "Simbologia Detallada, Agrupacions Departamentals, Centres i Transitorietat",
+        pages: "Pàg. 48 a 52",
+        ref: "Document de referència: DOGC9526_Estatut_URV_2025 (1).pdf - Pàg. 48 a 52",
+        summary: "Descripció heràldica de l'escut, 5 agrupacions per al Consell de Govern, catàleg de les 12 facultats/escoles i mandats transitoris.",
+        details: [
+          {
+            dt: "DA 1a. Heràldica i disseny institucional exacte",
+            dd: "Escut: representació de l'Estudi General de 1572 de Gaspar Cervantes de Gaeta. Forma oblonga renaixentista amb les quatre barres catalanes en ona. Colors: vermell sobre groc a l'esquerra i sanguina sobre carabassa a la dreta. Lema en gris sobre blanc: 'Sapientiae Liberi Libertati Sapientes'. Emblema: adaptació de l'obra d'Antoni Tàpies en colors sanguina i negre sobre blanc."
+          },
+          {
+            dt: "DA 3a. Les 5 Agrupacions departamentals (per al Consell de Govern)",
+            dd: "Agrupació A (Salut): Ciències Mèdiques Bàsiques, Medicina i Cirurgia, Infermeria, Psicologia; Agrupació B (Humanitats): Antropologia/Filosofia/Treball Social, Estudis Anglesos/Alemanys, Filologia Catalana, Filologies Romàniques, Història/Història de l'Art; Agrupació C (Socials i Jurídiques): Dret Privat/Processal/Financer, Dret Públic, Economia, Comunicació, Gestió d'Empreses, Geografia, Pedagogia; Agrupació D (Química/Biologia): Bioquímica/Biotecnologia, Química Analítica/Orgànica, Química Física/Inorgànica; Agrupació E (Enginyeries/Arquitectura): Eng. Electrònica/Elèctrica, Eng. Informàtica/Matemàtiques, Eng. Mecànica, Eng. Química, Arquitectura."
+          },
+          {
+            dt: "DA 5a. Catàleg oficial de Facultats i Escoles de la URV (12 centres)",
+            dd: "Facultats (9): Ciències de l'Educació i Psicologia, Ciències Jurídiques, Economia i Empresa, Enologia, Infermeria, Lletres, Medicina i Ciències de la Salut, Química, Turisme i Geografia. Escoles Tècniques Superiors (3): ETS d'Arquitectura, ETS d'Enginyeria, ETS d'Enginyeria Química."
+          },
+          {
+            dt: "Disposicions Transitòries",
+            dd: "DT 1a: Termini de 24 mesos per desplegar les normatives i adaptar reglaments; DT 3a: Constitució del Claustre en 6 mesos i del Consell de Govern en 3 mesos posteriors; DT 4a: El síndic de greuges continua fins a exhaurir el seu mandat; DT 5a: Equivalències de categories d'escola universitària (Catedràtic d'EU equivalent a Titular d'Universitat; Col·laborador equivalent a TEU)."
+          }
+        ]
+      }
+    ];
+
+    let currentDoc = 'losu';
+    let allExpanded = false;
+
+    function renderBlocks() {
+      const losuContainer = document.getElementById('losu-blocks');
+      const urvContainer = document.getElementById('urv-blocks');
+
+      losuContainer.innerHTML = losuData.map((item, idx) => createBlockHtml(item, 'losu', idx)).join('');
+      urvContainer.innerHTML = urvData.map((item, idx) => createBlockHtml(item, 'urv', idx)).join('');
+
+      updateSidebar();
+    }
+
+    function createBlockHtml(item, docType, index) {
+      const accentBg = docType === 'losu' ? 'bg-indigo-50 border-indigo-200 text-indigo-700' : 'bg-rose-50 border-rose-200 text-rose-700';
+      const badgeClass = docType === 'losu' ? 'text-indigo-600' : 'text-rose-600';
+      
+      const detailsList = item.details.map(d => `
+        <div class="border-l-2 border-slate-200 pl-4 py-1 hover:border-indigo-400 transition-colors">
+          <dt class="text-sm font-bold text-slate-900">${d.dt}</dt>
+          <dd class="text-sm text-slate-600 mt-1 leading-relaxed">${d.dd}</dd>
+        </div>
+      `).join('');
+
+      return `
+        <article class="content-block bg-white rounded-2xl border border-slate-200/90 shadow-sm transition hover:shadow-md overflow-hidden" id="${item.id}" data-doc="${docType}">
+          <header class="p-5 sm:p-6 cursor-pointer flex items-start justify-between gap-4 select-none" onclick="toggleAccordion('${item.id}')">
+            <div class="space-y-1.5 flex-1">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-bold border ${accentBg}">${item.num}</span>
+                <span class="text-xs font-mono font-medium text-slate-500">${item.pages}</span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight block-title">${item.title}</h3>
+              <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">${item.summary}</p>
+            </div>
+            <div class="p-2 rounded-xl bg-slate-100 text-slate-500 hover:text-slate-900 transition-transform duration-200 flex-shrink-0" id="icon-${item.id}">
+              <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </div>
+          </header>
+
+          <div class="accordion-body hidden px-5 pb-6 sm:px-6 pt-2 border-t border-slate-100" id="body-${item.id}">
+            <dl class="space-y-4 prose-legal mt-3">
+              ${detailsList}
+            </dl>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400 font-mono">
+              <span class="flex items-center gap-1.5 font-semibold text-slate-600">
+                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                ${item.ref}
+              </span>
+              <a href="#searchInput" class="text-indigo-600 hover:underline">Tornar a dalt &uarr;</a>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function toggleAccordion(id) {
+      const body = document.getElementById(`body-${id}`);
+      const icon = document.getElementById(`icon-${id}`);
+      if (!body) return;
+
+      const isHidden = body.classList.contains('hidden');
+      if (isHidden) {
+        body.classList.remove('hidden');
+        icon.classList.add('rotate-180', 'bg-indigo-50', 'text-indigo-600');
+      } else {
+        body.classList.add('hidden');
+        icon.classList.remove('rotate-180', 'bg-indigo-50', 'text-indigo-600');
+      }
+    }
+
+    function switchDoc(doc) {
+      currentDoc = doc;
+      
+      const tabLosu = document.getElementById('tab-losu');
+      const tabUrv = document.getElementById('tab-urv');
+      const tabComp = document.getElementById('tab-comparativa');
+
+      const secLosu = document.getElementById('section-losu');
+      const secUrv = document.getElementById('section-urv');
+      const secComp = document.getElementById('section-comparativa');
+
+      // Reset tabs
+      [tabLosu, tabUrv, tabComp].forEach(t => {
+        t.className = "doc-tab px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all bg-white text-slate-700 hover:bg-slate-200/60 border border-slate-200";
+      });
+
+      // Hide all sections
+      secLosu.classList.add('hidden');
+      secUrv.classList.add('hidden');
+      secComp.classList.add('hidden');
+
+      if (doc === 'losu') {
+        tabLosu.className = "doc-tab px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all bg-indigo-600 text-white shadow-sm";
+        secLosu.classList.remove('hidden');
+      } else if (doc === 'urv') {
+        tabUrv.className = "doc-tab px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all bg-rose-600 text-white shadow-sm";
+        secUrv.classList.remove('hidden');
+      } else if (doc === 'comparativa') {
+        tabComp.className = "doc-tab px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 transition-all bg-slate-900 text-white shadow-sm";
+        secComp.classList.remove('hidden');
+      }
+
+      updateSidebar();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function updateSidebar() {
+      const nav = document.getElementById('sidebar-nav');
+      const count = document.getElementById('nav-count');
+      nav.innerHTML = '';
+
+      if (currentDoc === 'comparativa') {
+        nav.innerHTML = `
+          <a href="#section-comparativa" class="block py-2 px-3 rounded-lg text-slate-700 hover:bg-slate-100 transition">Taula 1: Mandats i Càrrecs</a>
+          <a href="#section-comparativa" class="block py-2 px-3 rounded-lg text-slate-700 hover:bg-slate-100 transition">Taula 2: Percentatges d'Òrgans</a>
+          <a href="#section-comparativa" class="block py-2 px-3 rounded-lg text-slate-700 hover:bg-slate-100 transition">Taula 3: Llindars Financers i PDI</a>
+        `;
+        count.textContent = "3 taules";
+        return;
+      }
+
+      const activeData = currentDoc === 'losu' ? losuData : urvData;
+      count.textContent = `${activeData.length} blocs`;
+
+      activeData.forEach(item => {
+        const a = document.createElement('a');
+        a.href = `#${item.id}`;
+        a.className = "block py-2 px-3 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition text-xs leading-snug";
+        a.innerHTML = `<span class="font-bold text-slate-800 block mb-0.5">${item.num}</span><span class="truncate block text-slate-500">${item.title}</span>`;
+        a.onclick = (e) => {
+          e.preventDefault();
+          const target = document.getElementById(item.id);
+          if (target) {
+            const body = document.getElementById(`body-${item.id}`);
+            if (body && body.classList.contains('hidden')) {
+              toggleAccordion(item.id);
+            }
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        };
+        nav.appendChild(a);
+      });
+    }
+
+    // Toggle All functionality
+    document.getElementById('toggleAllBtn').addEventListener('click', () => {
+      allExpanded = !allExpanded;
+      const targetSec = currentDoc === 'losu' ? document.getElementById('losu-blocks') : document.getElementById('urv-blocks');
+      if (!targetSec) return;
+
+      const bodies = targetSec.querySelectorAll('.accordion-body');
+      const icons = targetSec.querySelectorAll('[id^="icon-"]');
+      const btnText = document.getElementById('toggleAllText');
+
+      bodies.forEach(body => {
+        if (allExpanded) {
+          body.classList.remove('hidden');
+        } else {
+          body.classList.add('hidden');
+        }
+      });
+
+      icons.forEach(icon => {
+        if (allExpanded) {
+          icon.classList.add('rotate-180', 'bg-indigo-50', 'text-indigo-600');
+        } else {
+          icon.classList.remove('rotate-180', 'bg-indigo-50', 'text-indigo-600');
+        }
+      });
+
+      btnText.textContent = allExpanded ? "Plega-ho tot" : "Desplega-ho tot";
+    });
+
+    // Realtime Search
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      const currentBlocks = document.querySelectorAll(currentDoc === 'losu' ? '#losu-blocks .content-block' : '#urv-blocks .content-block');
+
+      currentBlocks.forEach(block => {
+        const text = block.textContent.toLowerCase();
+        if (text.includes(q)) {
+          block.style.display = '';
+          if (q.length > 2) {
+            const body = block.querySelector('.accordion-body');
+            const icon = block.querySelector('[id^="icon-"]');
+            if (body && body.classList.contains('hidden')) {
+              body.classList.remove('hidden');
+              if (icon) icon.classList.add('rotate-180', 'bg-indigo-50', 'text-indigo-600');
+            }
+          }
+        } else {
+          block.style.display = 'none';
+        }
+      });
+    });
+
+    // Init
+    window.addEventListener('DOMContentLoaded', () => {
+      renderBlocks();
+      // Expand the first block of LOSU by default
+      toggleAccordion('losu-preambul');
+    });
+  </script>
+</body>
+</html>
